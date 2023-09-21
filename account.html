@@ -1,8 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <link rel="stylesheet" href="filesforwebsite.css">
-        <meta charset="UTF-8">
-        <title>Team Tech Support</title>
-        <script src="main.js"></script>
-    </head>
+
+<head>
+    <script src="https://apis.google.com/js/api.js"></script>
+    <link rel="stylesheet" href="filesforwebsite.css">
+    <meta charset="UTF-8">
+    <title>Team Tech Support</title>
+    <script src="main.js"></script>
+    <style>
+        .container1 {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2em;
+            background-color: white;
+            border-radius: 5px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+
+<body>
+    <div class=".container1">
+        <div class="g-signin2" data-onsuccess="onSignIn"></div>
+        <h1>
+            Email:
+            <script src="main.js">
+                if (auth2.isSignedIn.get()) {
+                    var profile = auth2.currentUser.get().getBasicProfile();
+                    console.log('Full Name: ' + profile.getName());
+                    console.log('Email: ' + profile.getEmail());
+                }
+            </script>
+
+        </h1>
+    </div>

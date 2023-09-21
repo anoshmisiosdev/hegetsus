@@ -60,25 +60,12 @@
     <header style="font-family: Halo;">
         <h1>Riyan Upcoming Shah Rukh Khan Team</h1>
         <script src="https://accounts.google.com/gsi/client" async></script>
-        <div id="g_id_onload" data-client_id="125257763090-kad4a17muhdr70ujqfchq20e3fc30jl9.apps.googleusercontent.com"
+        <div id="g_id_onload" data-ux_mode="redirect" data-client_id="125257763090-kad4a17muhdr70ujqfchq20e3fc30jl9.apps.googleusercontent.com" data-login_uri="/dashboard/hegetsus/account.html"
             data-callback="handleCredentialResponse" data-auto_prompt="true">
             <div class="g_id_signin" data-type="standard" data-shape="pill" data-theme="filled_blue"
                 data-text="signup_with" data-size="large" data-logo_alignment="left"></div>
         </div>
-        <script>
-            function handleCredentialResponse(response) {
-                // decodeJwtResponse() is a custom function defined by you
-                // to decode the credential response.
-                const responsePayload = decodeJwtResponse(response.credential);
-
-                console.log("ID: " + responsePayload.sub);
-                console.log('Full Name: ' + responsePayload.name);
-                console.log('Given Name: ' + responsePayload.given_name);
-                console.log('Family Name: ' + responsePayload.family_name);
-                console.log("Image URL: " + responsePayload.picture);
-                console.log("Email: " + responsePayload.email);
-            }
-        </script>
+        <script src="login.js"></script>
         <script src="main.js"></script>
     </header>
 
@@ -110,5 +97,4 @@
         <img src="jason.jpg" alt="Broke ass can't afford internet" height="400" width="600"> </img>
     </div>
 </body>
-
-</html>
+<html>
