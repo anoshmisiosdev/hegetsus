@@ -1,9 +1,9 @@
 function myFunction(x) {
     x.classList.toggle("change");
   }
-const menuBtn = document.querySelector('menubutton');
+const menuBtn = document.querySelector('change');
 let menuOpen = false;
-menubutton.addEventListener('click', () => {
+menuBtn.addEventListener('change', () => {
 if(!menuOpen) {
     menuBtn.classList.add('open');
     menuOpen = true;} else {
