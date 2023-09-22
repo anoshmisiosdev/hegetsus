@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <script src="https://apis.google.com/js/api.js"></script>
     <link rel="stylesheet" href="filesforwebsite.css">
     <meta charset="UTF-8">
     <title>Team Tech Support</title>
-    <script src="main.js"></script>
+
+    <script>document.cookie = "cookieName=cookieValue; SameSite=None; path=/"</script>
+
     <style>
         .container1 {
             max-width: 800px;
@@ -21,16 +22,52 @@
 
 <body>
     <div class=".container1">
-        <div class="g-signin2" data-onsuccess="onSignIn"></div>
-        <h1>
-            Email:
-            <script src="main.js">
+        <div>
+            <p>Email: <span id="user-email"></span></p>
+            <p>Name: <span id="user-name"></span></p>
+        </div>
+        
+    </div>
+    <script src="https://accounts.google.com/gsi/client" async></script>
+    <script>
+        // Function to update user information
+        function updateUserInfo() {
+            // Check if the 'google' object is available (Google Sign-In API is loaded)
+            if (typeof google !== 'undefined' && typeof google.accounts !== 'undefined') {
+                // Get the Google Auth instance
+                const auth2 = google.accounts.id.getAuthInstance();
+                
+                // Check if a user is signed in
                 if (auth2.isSignedIn.get()) {
-                    var profile = auth2.currentUser.get().getBasicProfile();
-                    console.log('Full Name: ' + profile.getName());
-                    console.log('Email: ' + profile.getEmail());
+                    // Get the user's profile
+                    const user = auth2.currentUser.get();
+                    
+                    // Get the user's basic profile information
+                    const profile = user.getBasicProfile();
+                    
+                    // Update the HTML elements with user's email and name
+                    document.getElementById("user-email").textContent = profile.getEmail();
+                    document.getElementById("user-name").textContent = profile.getName();
+                } else {
+                    // Clear the user information if not signed in
+                    document.getElementById("user-email").textContent = "";
+                    document.getElementById("user-name").textContent = "";
                 }
-            </script>
+            }
+        }
+
+        // Call the updateUserInfo function when the page loads
+        window.onload = function () {
+            // Load the Google Sign-In API client library
+            google.accounts.id.initialize({
+                client_id: 'YOUR_CLIENT_ID' // Replace with your actual client ID
+            }).then(function () {
+                // Once initialized, update user information
+                updateUserInfo();
+            });
+        }
+    </script>
+</body>
 
         </h1>
     </div>
