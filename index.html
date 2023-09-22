@@ -7,10 +7,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://accounts.google.com/gsi/client" async></script>
     <title>Team Tech Support</title>
-
+    <script>
+        // Function to set the SameSite attribute for all cookies on the current domain
+        var cookieValue = "g_csrf_token"; // Replace this with the value you want to store
+        document.cookie = "cookieName=" + encodeURIComponent(cookieValue) + "; path=/; SameSite=None; Secure";
+        var cookieValue = "g_state"; // Replace this with the value you want to store
+        document.cookie = "cookieName=" + encodeURIComponent(cookieValue) + "; path=/; SameSite=None; Secure";
+        var cookieValue = "G_ENABLED_IDPS"; // Replace this with the value you want to store
+        document.cookie = "cookieName=" + encodeURIComponent(cookieValue) + "; path=/; SameSite=None; Secure";
+    </script>
     <style>
         body {
-            background:linear-gradient(orange,white,green);
+            background: linear-gradient(orange, white, green);
             background-repeat: no-repeat;
             background-attachment: fixed;
         }
@@ -94,7 +102,7 @@
     </div>
     <div class="container3">
         <h2 style="color:yellow" font_size=>Glorious Leader </h2>
-        <img src="jason.jpg" alt="Broke ass can't afford internet" height="400" width="600" > </img>
+        <img src="jason.jpg" alt="Broke ass can't afford internet" height="400" width="600"> </img>
     </div>
     <script>
         const googleSignInClientId = "125257763090-kad4a17muhdr70ujqfchq20e3fc30jl9.apps.googleusercontent.com"; // Replace with your actual client ID
@@ -104,16 +112,17 @@
         }
 
         window.onload = function () {
-    google.accounts.id.initialize({
-        client_id: googleSignInClientId,
-        callback: handleCredentialResponse
-    });
-    google.accounts.id.renderButton(
-        document.getElementById("gooDiv"),
-        { theme: "outline", size: "large" }
-    );
-}
+            google.accounts.id.initialize({
+                client_id: googleSignInClientId,
+                callback: handleCredentialResponse
+            });
+            google.accounts.id.renderButton(
+                document.getElementById("gooDiv"),
+                { theme: "outline", size: "large" }
+            );
+        }
 
     </script>
 </body>
+
 </html>
