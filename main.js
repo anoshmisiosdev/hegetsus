@@ -34,3 +34,9 @@ var onFailure = function(error) {
     console.log(error);
     window.location.replace("/dashboard/hegetsus/404.html")
 };
+if (auth2.isSignedIn.get()) {
+    var profile =
+        auth2.currentUser.get().getBasicProfile();
+    console.log('Full Name: ' + profile.getName());
+    console.log('Email: ' + profile.getEmail());
+}
