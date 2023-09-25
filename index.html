@@ -17,54 +17,77 @@
         document.cookie = "cookieName=" + encodeURIComponent(cookieValue) + "; path=/; SameSite=None; Secure";
     </script>
     <style>
-        body {
-            background: linear-gradient(orange, white, green);
-            background-repeat: no-repeat;
-            background-attachment: fixed;
+        @font-face {
+            font-family: HALO3;
+            src: url(Halo3.ttf);
         }
-
-        header {
-            position: static;
-            max-height: 100px;
-            background-color: #333;
+        @font-face {
+            font-family: NEVERSAYDIE;
+            src: url(NEVERSAYDIE.ttf);
+        }
+        @font-face {
+            font-family: PDARK;
+            src: url(pdark.ttf);
+        }
+        @font-face {
+            font-family: PRICEDOWN;
+            src: url(pricedown.otf);
+        }
+        @font-face {
+            font-family: RECHARGE;
+            src: url(recharge.otf);
+        }
+        @font-face {
+            font-family: SAVEDZERO;
+            src: url(savedbyzero.otf);
+        }
+        @font-face {
+            font-family: ZEROHOUR;
+            src: url(zerohour.otf);
+        }
+        h1{
+            text-align: center;
+            align-content: center;
+            font-family: PRICEDOWN;
+            font-size: 8vw;
+            max-height: 6vh;
+        }
+        ul{
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: rgb(54, 54, 54);
+        }
+        li{
+            float:left
+        }
+        li a{
+            display: block;
+            font-family: ZEROHOUR;
+            font-size: 1vw;
             color: white;
             text-align: center;
-            font-family: Halo;
-            padding: 1em 0;
+            background-color: green;
+            padding: 8px 16px;
+            text-decoration: none;
+            border-radius: 6;
+            border-color: black;
+            border-style: inset;
+            
         }
-
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 2em;
-            background-color: white;
-            border-radius: 5px;
+        li a:hover{
+            background-color: rgb(80, 175, 80);
+        }
+        .logocontainer{
+            align-content: center;
             text-align: center;
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-        }
-
-        .container2 {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 2em;
-            background-color: black;
-            border-radius: 5px;
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-        }
-
-        .container3 {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 2em;
-            background-color: rgb(174, 29, 29);
-            border-radius: 5px;
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
         }
     </style>
 </head>
 
 <body>
-    <header style="font-family: Halo;">
+    <header>
         <h1>Team Tech Support</h1>
         <script src="https://accounts.google.com/gsi/client" async></script>
         <div id="g_id_onload" data-ux_mode="redirect"
@@ -74,16 +97,16 @@
             <div class="g_id_signin" data-type="standard" data-shape="pill" data-theme="filled_blue"
                 data-text="signup_with" data-size="large" data-logo_alignment="left"></div>
         </div>
-        <div class="w3-bar w3-black">
-            <a href="members.html" class="w3-bar-item w3-button" style="color: white;">The Team</a>
-            <a href="index.html" class="w3-bar-item w3-button" style="color: white;">Home</a>
-            <a href="projects.html" class="w3-bar-item w3-button" style="color: white;">Projects</a>
-          </div>
-
+        <ul>
+            <li><a href = "members.html">Members</a></li>
+            <li><a href = "index.html">Home</a></li>
+            <li><a href = "projects.html">Our Projects</a></li>
+        </ul>
+        
     </header>
 
-    <div class="container2">
-        <img src="icon.png" alt="Broke ass can't afford internet"> </img>
+    <div class="logocontainer">
+        <img src="icon.png" alt="Broke ass can't afford internet" width="500" height="500"> </img>
 
     </div>
 
