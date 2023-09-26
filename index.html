@@ -11,48 +11,58 @@
             font-family: HALO3;
             src: url(Halo3.ttf);
         }
+
         @font-face {
             font-family: NEVERSAYDIE;
             src: url(NEVERSAYDIE.ttf);
         }
+
         @font-face {
             font-family: PDARK;
             src: url(pdark.ttf);
         }
+
         @font-face {
             font-family: PRICEDOWN;
             src: url(pricedown.otf);
         }
+
         @font-face {
             font-family: RECHARGE;
             src: url(recharge.otf);
         }
+
         @font-face {
             font-family: SAVEDZERO;
             src: url(savedbyzero.otf);
         }
+
         @font-face {
             font-family: ZEROHOUR;
             src: url(zerohour.otf);
         }
-        h1{
+
+        h1 {
             text-align: center;
             align-content: center;
             font-family: NEVERSAYDIE;
             font-size: 8vw;
             max-height: 6vh;
         }
-        ul{
+
+        ul {
             list-style-type: none;
             margin: 0;
             padding: 0;
             overflow: hidden;
             background-color: rgb(54, 54, 54);
         }
-        li{
-            float:left
+
+        li {
+            float: left
         }
-        li a{
+
+        li a {
             display: block;
             font-family: ZEROHOUR;
             font-size: 1vw;
@@ -64,12 +74,14 @@
             border-radius: 16;
             border-color: black;
             border-style: inset;
-            
+
         }
-        li a:hover{
+
+        li a:hover {
             background-color: rgb(80, 175, 80);
         }
-        .logocontainer{
+
+        .logocontainer {
             align-content: center;
             text-align: center;
         }
@@ -78,40 +90,21 @@
 
 <body>
     <header>
-        <h1>Team Tech Support</h1>
+        <div class="stark">
+            <h1>Team Tech Support</h1>
+        </div>
         <ul>
-            <li><a href = "index.html">Home</a></li>
-            <li><a href = "members.html">Our team</a></li>
-            <li><a href = "projects.html">Our Projects</a></li>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="members.html">Our team</a></li>
+            <li><a href="projects.html">Our Projects</a></li>
         </ul>
-        
+
     </header>
 
     <div class="logocontainer">
         <img src="icon.png" alt="Broke ass can't afford internet" width="500" height="500"> </img>
 
     </div>
-
-
-    <script>
-        const googleSignInClientId = "125257763090-kad4a17muhdr70ujqfchq20e3fc30jl9.apps.googleusercontent.com"; // Replace with your actual client ID
-
-        function handleCredentialResponse(response) {
-            console.log(response);
-        }
-
-        window.onload = function () {
-            google.accounts.id.initialize({
-                client_id: googleSignInClientId,
-                callback: handleCredentialResponse
-            });
-            google.accounts.id.renderButton(
-                document.getElementById("gooDiv"),
-                { theme: "outline", size: "large" }
-            );
-        }
-
-    </script>
 </body>
 
 </html>
