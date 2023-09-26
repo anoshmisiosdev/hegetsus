@@ -9,49 +9,109 @@
     <title>Projects</title>
 
     <style>
-        body {
-            font-family: Arial, sans-serif;
+            @font-face {
+            font-family: HALO3;
+            src: url(Halo3.ttf);
+        }
+        @font-face {
+            font-family: NEVERSAYDIE;
+            src: url(NEVERSAYDIE.ttf);
+        }
+        @font-face {
+            font-family: PDARK;
+            src: url(pdark.ttf);
+        }
+        @font-face {
+            font-family: PRICEDOWN;
+            src: url(pricedown.otf);
+        }
+        @font-face {
+            font-family: RECHARGE;
+            src: url(recharge.otf);
+        }
+        @font-face {
+            font-family: SAVEDZERO;
+            src: url(savedbyzero.otf);
+        }
+        @font-face {
+            font-family: ZEROHOUR;
+            src: url(zerohour.otf);
+        }
+        h1{
+            text-align: center;
+            align-content: center;
+            font-family: NEVERSAYDIE;
+            font-size: 8vw;
+            max-height: 6vh;
+        }
+        ul{
+            list-style-type: none;
             margin: 0;
             padding: 0;
-            background-color: #ffffff;
+            overflow: hidden;
+            background-color: rgb(54, 54, 54);
         }
-
-        header {
-            position: static;
-            max-height: 100px;
-            background-color: #333;
+        li{
+            float:left
+        }
+        li a{
+            display: block;
+            font-family: ZEROHOUR;
+            font-size: 1vw;
             color: white;
             text-align: center;
-            font-family: Halo;
-            padding: 1em 0;
+            background-color: green;
+            padding: 8px 16px;
+            text-decoration: none;
+            border-radius: 16;
+            border-color: black;
+            border-style: inset;
+            
         }
-
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 2em;
-            background-color: white;
-            border-radius: 5px;
+        li a:hover{
+            background-color: rgb(80, 175, 80);
+        }
+        h2{
             text-align: center;
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            font-family: SAVEDZERO;
+            font-size: 500%;
+            padding: 8px;
+            border-width: 16px;
+            border-radius: 8px;
+            border-top-style: groove;
+            border-top-color: blue;
+            border-bottom-style: groove;
+            border-bottom-color: orange;
         }
-
-        .container2 {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 2em;
-            background-color: black;
-            border-radius: 5px;
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-        }
-
-        .container3 {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 2em;
-            background-color: rgb(174, 29, 29);
-            border-radius: 5px;
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        img{
+            
+            justify-content: center;
+            justify-self: center;
+            align-self: center;
+            align-content: center;
+            text-align: center;
+            border-top-color: red;
+            border-top-style: ridge;
+            border-bottom-color: red;
+            border-bottom-style:ridge;
+            border-right-style: groove;
+            border-left-style: groove;
+            border-left-color: yellow;
+            border-right-color: yellow;
+            border-width: 16px;
+            border-radius: 6px;
+            max-width: 90%;
+            max-height: auto;
+        }   
+        .imageholder{
+            justify-content: center;
+            justify-self: center;
+            align-self: center;
+            align-content: center;
+            text-align: center;
+            padding: 16px;
+            max-width: auto;
+            
         }
     </style>
 </head>
@@ -67,15 +127,14 @@
         <script src="login.js"></script>
         <script src="main.js"></script>
         
-        <div class="w3-bar w3-black">
-            <a href="members.html" class="w3-bar-item w3-button" style="color: white;">The Team</a>
-            <a href="index.html" class="w3-bar-item w3-button" style="color: white;">Home</a>
-            <a href="projects.html" class="w3-bar-item w3-button" style="color: white;">Projects</a>
-          </div>
+        <ul>
+            <li><a href = "index.html">Home</a></li>
+            <li><a href = "members.html">Our Team</a></li>
+            <li><a href = "projects.html">Our Projects</a></li>
+        </ul>
     </header>
-    <div class="container">
-        <h2 style="font-family: Halo; font-size: 200;">COMING SOON!</h2>
-    </div>
-    <div class="container">
-        <img src="jason.jpg" height="300" width="200"> </img> 
-    </div>
+        <h2>COMING SOON</h2>
+        <div class="imageholder">
+            <img src="jason.jpg"></img>
+        </div>
+        </body>        
