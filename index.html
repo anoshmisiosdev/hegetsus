@@ -2,6 +2,28 @@
 <html lang="en">
 
 <head>
+    <meta name="google-signin-client_id"
+        content="125257763090-kad4a17muhdr70ujqfchq20e3fc30jl9.apps.googleusercontent.com" />
+    <script src="https://apis.google.com/js/api.js">
+        gapi.load('auth2', function () {
+            gapi.auth2.init({
+                client_id: '125257763090-kad4a17muhdr70ujqfchq20e3fc30jl9.apps.googleusercontent.com'
+            });
+        });
+        function signOut() {
+            gapi.client.init({
+                apiKey: 125257763090 - kad4a17muhdr70ujqfchq20e3fc30jl9.apps.googleusercontent.com,
+                discoveryDocs: discoveryDocs,
+                clientId: clientId,
+                scope: scopes,
+                fetch_basic_profile: true,
+            })
+        }
+            var auth2 = gapi.auth2.getAuthInstance();
+            auth2.signOut().then(function () {
+                console.log("User signed out.");
+            });
+    </script>
     <link rel="stylesheet" href="filesforwebsite.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -85,7 +107,8 @@
             align-content: center;
             text-align: center;
         }
-        p{
+
+        p {
             font-family: RECHARGE;
             font-size: 2vw;
             color: green;
@@ -93,12 +116,39 @@
             border-style: groove;
             border-radius: 14;
             border-color: orange;
-            border-width: 2px;   
+            border-width: 2px;
         }
     </style>
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+    <div id="g_id_onload" data-client_id="125257763090-kad4a17muhdr70ujqfchq20e3fc30jl9.apps.googleusercontent.com"
+        data-callback="onSignIn"
+        data-context="signin"
+        data-ux_mode="popup"
+        data-itp_support="true">
+    </div>
+    <div class="g_id_signin"
+     data-type="standard"
+     data-shape="pill"
+     data-theme="filled_blue"
+     data-text="signin_with"
+     data-size="large"
+     data-logo_alignment="left">
+</div>
+
+    <button id="toggle" onclick="signOut()">Sign out</button>
 </head>
 
 <body>
+    <div class="g-signin2" data-onsuccess="onSignIn"></div>
+
+    <script type="text/javascript">
+        function onSignIn(googleUser) {
+            console.log("Succesfully Singed in!!!");
+            console.log(gapi.auth2.BasicProfile.getId());
+            console.log(gapi.auth2.BasicProfile.getName());
+            console.log(gapi.auth2.BasicProfile.getEmail());
+        }
+    </script>
     <header>
         <div class="stark">
             <h1>Team Tech Support</h1>
