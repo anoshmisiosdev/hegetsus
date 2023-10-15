@@ -22,14 +22,14 @@ header
     left: 0;
     width: 100%;
     padding: 30 px 100px;
-    display: flex;
+    display: static;
     justify-content: space-between;
     align-items: center;
     z-index: 10000;
 }
 header .logo
 {
-color: #46493b;
+color: #3f179e;
 font-weight: 700;
 text-decoration: none;
 font-size: 5em;
@@ -38,7 +38,7 @@ letter-spacing: 2px;
 }
 header ul
 {
- display: flex; 
+ display: static; 
  justify-content: center;
  align-items: center; 
 }
@@ -70,7 +70,7 @@ color: #705D56;
 }
 body{
     min-height: 100vh;
-    display: flex;
+    display: static;
     align-items: center;
     justify-content: center;
     background-color: #b7b7a4;
@@ -79,18 +79,18 @@ body{
 {
     max-width: 1120px;
     width: 100%;
-    background-color: #46493b;
+    background-color: #3f179e;
     padding: 40px 0;
 }
 .slide-content{
     overflow: hidden;
     margin: 0 40px;
-    background-color: #46493b;
+    background-color: #3f179e;
     border-radius: 25px;
 }
 .card{
     border-radius: 25px;
-    background-color: #fff;
+    background-color: #6845bb;
 }
 .image-content,
 .card-content{
@@ -113,7 +113,7 @@ body{
     top: 0;
     height: 100%;
     width: 100%;
-    background-color: #6b705c;
+    background-color: #3f179e;
     border-radius: 25px 25px 0 25px;
 }
 .overlay::before,
@@ -124,12 +124,12 @@ body{
     bottom: -40px;
     height: 40px;
     width: 40px;
-    background-color: #6b705c;
+    background-color: #3f179e;
 }
 .overlay::after
 {
     border-radius: 0 25px 0 0;
-    background-color: #fff;
+    background-color: #6845bb;
 
 }
 .card-image
@@ -138,7 +138,7 @@ body{
     height: 150px;
     width: 150px;
     border-radius: 50%;
-    background: #fff;
+    background: #6845bb;
     padding: 3px;
 
 }
@@ -161,7 +161,7 @@ body{
 {
     font-size: 14px;
     text-align: center;
-    color: #707070;
+    color: #3f179e;
 }
 .button
 {
@@ -179,11 +179,11 @@ body{
     background: #7b806a;  
 }
 .swiper-navBtn{
-    color: #707853;
+    color: #3f179e;
     transition: color 0.3s ease;
 }
 .swiper-navBtn:hover{
-    color: #383a2f;
+    color: #3f179e;
 }
 .swiper-navBtn::before,
 .swiper-navBtn::after
@@ -200,11 +200,11 @@ body{
 }
 .swiper-pagination.bullet
 {
-    background-color: #707853; 
+    background-color: #3f179e; 
     opacity: 1;
 }
 .swiper-pagination.bullet-active
 {
-    background-color: #383a2f; 
+    background-color: #3f179e; 
     opacity: 1;
 }
