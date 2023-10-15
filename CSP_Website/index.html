@@ -1,0 +1,50 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Tech Support-CSP Website</title>
+        <link rel="stylesheet" type="text/css" href="style.css">
+    </head>
+    <body>
+        <header>
+            <a href="#" class="logo">Tech Support</a>
+            <ul>
+                <li><a href="#" class="active">Home</a></li>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Login/Sign In</a></li>
+                <li><a href="#">Contacts</a></li>
+            </ul>
+        </header>
+        <section>
+            <img src="stars.png" id="stars">
+            <img src="moon.png" id="moon">
+            
+            <a href="#sec" id="btn">Projects</a>
+            <img src="building.png" id="building">
+            <img src="burjkhalifa.png" id="burjkhalifa">
+        </section>
+        <div class="sec" id="sec">
+            <h2>Projects</h2>
+            <p>Need to develop this more <br><br> Make Projects as different panels for users to interact with</p>
+        </div>
+        <script> 
+            let stars = document.getElementById('stars');
+            let moon = document.getElementById('moon');
+            let building = document.getElementById('building');
+            let text = document.getElementById('text');
+            let btn = document.getElementById('btn');
+            let burjkhalifa = document.getElementById('burjkhalifa');
+            let header = document.querySelector('header');
+
+            window.addEventListener('scroll', function (){
+                let value = window.scrollY;
+                stars.style.left = value * 0.25 + 'px';
+                moon.style.top = value * 0.27 + 'px';
+                building.style.top = value * 0.5 +'px';
+                burjkhalifa.style.top = value * 0 +'px';
+                /*text.style.marginRight = value * 0 +'px';*/
+               /* text.style.marginTop = value * 1.5 +'px';*/
+                header.style.top = value * 0.5 + 'px';
+            })
+        </script>
+    </body>
+</html>
