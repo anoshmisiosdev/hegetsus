@@ -6,6 +6,27 @@
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
 }
+header
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 30 px 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 10000;
+}
+header .logo
+{
+color: #10b158;
+font-weight: 700;
+text-decoration: none;
+font-size: 5em;
+text-transform: uppercase;
+letter-spacing: 2px;
+}
 .Contact
 {
     position: relative;
