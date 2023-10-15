@@ -5,16 +5,18 @@
         <meta http-equiv="X-UA-Compatible" contact="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>About Us-CSP Website</title>
+
+        <link rel="stylesheet" href="swiper-bundle.min.css">
         
         <link rel="stylesheet" href="About.css">
 
 
     </head>
     <body>
-        <div class="slide-container">
+        <div class="slide-container swiper">
             <div class="slide-content">
-                <div class="card-wrapper">
-                    <div class="card">
+                <div class="card-wrapper swiper-wrapper">
+                    <div class="card swiper-slide">
                         <div class="image-content">
                             <span class="overlay"></span>
 
@@ -31,9 +33,17 @@
                     </div>
                 </div>
             </div>
+
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-pagination"></div>
+
         </div>
     </body>
 
+    <script src="swiper-bundle.min.js"></script>
+
+    <script src="script.js"></script>
 
     </html>
 
