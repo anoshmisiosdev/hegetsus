@@ -12,18 +12,50 @@ body{
     align-items: center;
     justify-content: center;
     background-color: #b7b7a4;
-
 }
-.card-image{
+.slide-content{
+    margin: 0 40px;
+}
+.card{
+    width: 320px;
+    border-radius: 25px;
+    background-color: #fff;
+}
+.image-content,
+.card-content{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px 14px;  
+}
+.card-image
+{
     position: relative;
     height: 150px;
     width: 150px;
-    border-radius: 60%;
-}
-.card-image .card-img{
-    height: 100%;
-    width: 100%;
-    object-fit: cover;
-    border-radius: 60%;
-}
+    border-radius: 50%;
+    background: #fff;
+    padding: 3px;
 
+}
+.card-image .card-img
+{
+   height: 100%;
+   width: 100%;
+   object-fit: cover;
+   border-radius: 50%;
+   border: 4px solid #6b705c;
+
+}
+.name
+{
+    font-size: 20px;
+    font-weight: 500;
+    color: #333;
+}
+.description
+{
+    font-size: 14px;
+    text-align: center;
+    color: #707070;
+}
