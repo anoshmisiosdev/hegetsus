@@ -77,7 +77,7 @@ body{
 }
 .slide-container
 {
-    max-width: 1120px;
+    max-width: fit-content;
     width: 100%;
     background-color: #3f179e;
     padding: 40px 0;
