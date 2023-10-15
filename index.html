@@ -1,175 +1,50 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta name="google-signin-client_id"
-        content="125257763090-kad4a17muhdr70ujqfchq20e3fc30jl9.apps.googleusercontent.com" />
-    <script src="https://apis.google.com/js/api.js">
-        gapi.load('auth2', function () {
-            gapi.auth2.init({
-                client_id: '125257763090-kad4a17muhdr70ujqfchq20e3fc30jl9.apps.googleusercontent.com'
-            });
-        });
-        function signOut() {
-            gapi.client.init({
-                apiKey: 125257763090 - kad4a17muhdr70ujqfchq20e3fc30jl9.apps.googleusercontent.com,
-                discoveryDocs: discoveryDocs,
-                clientId: clientId,
-                scope: scopes,
-                fetch_basic_profile: true,
-            })
-        }
-            var auth2 = gapi.auth2.getAuthInstance();
-            auth2.signOut().then(function () {
-                console.log("User signed out.");
-            });
-    </script>
-    <link rel="stylesheet" href="filesforwebsite.css">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Team Tech Support</title>
-    <style>
-        @font-face {
-            font-family: HALO3;
-            src: url(Halo3.ttf);
-        }
-
-        @font-face {
-            font-family: NEVERSAYDIE;
-            src: url(NEVERSAYDIE.ttf);
-        }
-
-        @font-face {
-            font-family: PDARK;
-            src: url(pdark.ttf);
-        }
-
-        @font-face {
-            font-family: PRICEDOWN;
-            src: url(pricedown.otf);
-        }
-
-        @font-face {
-            font-family: RECHARGE;
-            src: url(recharge.otf);
-        }
-
-        @font-face {
-            font-family: SAVEDZERO;
-            src: url(savedbyzero.otf);
-        }
-
-        @font-face {
-            font-family: ZEROHOUR;
-            src: url(zerohour.otf);
-        }
-
-        h1 {
-            text-align: center;
-            align-content: center;
-            font-family: NEVERSAYDIE;
-            font-size: 8vw;
-            max-height: 6vh;
-        }
-
-        ul {
-            list-style-type: none;
-            margin: 0;
-            padding: 0;
-            overflow: hidden;
-            background-color: rgb(54, 54, 54);
-        }
-
-        li {
-            float: left
-        }
-
-        li a {
-            display: block;
-            font-family: ZEROHOUR;
-            font-size: 1vw;
-            color: white;
-            text-align: center;
-            background-color: green;
-            padding: 8px 16px;
-            text-decoration: none;
-            border-radius: 16;
-            border-color: black;
-            border-style: inset;
-
-        }
-
-        li a:hover {
-            background-color: rgb(80, 175, 80);
-        }
-
-        .logocontainer {
-            align-content: center;
-            text-align: center;
-        }
-
-        p {
-            font-family: RECHARGE;
-            font-size: 2vw;
-            color: green;
-            text-align: center;
-            border-style: groove;
-            border-radius: 14;
-            border-color: orange;
-            border-width: 2px;
-        }
-    </style>
-    <script src="https://accounts.google.com/gsi/client" async defer></script>
-    <div id="g_id_onload" data-client_id="125257763090-kad4a17muhdr70ujqfchq20e3fc30jl9.apps.googleusercontent.com"
-        data-callback="onSignIn"
-        data-context="signin"
-        data-ux_mode="popup"
-        data-itp_support="true">
-    </div>
-    <div class="g_id_signin"
-     data-type="standard"
-     data-shape="pill"
-     data-theme="filled_blue"
-     data-text="signin_with"
-     data-size="large"
-     data-logo_alignment="left">
-</div>
-
-    <button id="toggle" onclick="signOut()">Sign out</button>
-</head>
-
-<body>
-    <div class="g-signin2" data-onsuccess="onSignIn"></div>
-
-    <script type="text/javascript">
-        function onSignIn(googleUser) {
-            console.log("Succesfully Singed in!!!");
-            console.log(gapi.auth2.BasicProfile.getId());
-            console.log(gapi.auth2.BasicProfile.getName());
-            console.log(gapi.auth2.BasicProfile.getEmail());
-        }
-    </script>
-    <header>
-        <div class="stark">
-            <h1>Team Tech Support</h1>
+<!doctype html>
+<html>
+    <head>
+        <title>Tech Support-CSP Website</title>
+        <link rel="stylesheet" type="text/css" href="style.css">
+    </head>
+    <body>
+        <header>
+            <a href="#" class="logo">Tech Support</a>
+            <ul>
+                <li><a href="#" class="active">Home</a></li>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Login/Sign In</a></li>
+                <li><a href="#">Contacts</a></li>
+            </ul>
+        </header>
+        <section>
+            <img src="stars.png" id="stars">
+            <img src="moon.png" id="moon">
+            
+            <a href="#sec" id="btn">Projects</a>
+            <img src="building.png" id="building">
+            <img src="burjkhalifa.png" id="burjkhalifa">
+        </section>
+        <div class="sec" id="sec">
+            <h2>Projects</h2>
+            <p>Need to develop this more <br><br> Make Projects as different panels for users to interact with</p>
         </div>
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="members.html">Our team</a></li>
-            <li><a href="projects.html">Our Projects</a></li>
-            <li><a href="hello.php">PHP</a></li>
-        </ul>
+        <script> 
+            let stars = document.getElementById('stars');
+            let moon = document.getElementById('moon');
+            let building = document.getElementById('building');
+            let text = document.getElementById('text');
+            let btn = document.getElementById('btn');
+            let burjkhalifa = document.getElementById('burjkhalifa');
+            let header = document.querySelector('header');
 
-    </header>
-
-    <div class="logocontainer">
-        <img src="icon.png" alt="Broke ass can't afford internet" width="500" height="500"> </img>
-
-    </div>
-    <div class="stark">
-        <p>Welcome to our Team Website!</p>
-        <p>We are students of Mr. Millard's 2nd Period AP CSP Class</p>
-    </div>
-</body>
-
+            window.addEventListener('scroll', function (){
+                let value = window.scrollY;
+                stars.style.left = value * 0.25 + 'px';
+                moon.style.top = value * 0.27 + 'px';
+                building.style.top = value * 0.5 +'px';
+                burjkhalifa.style.top = value * 0 +'px';
+                /*text.style.marginRight = value * 0 +'px';*/
+               /* text.style.marginTop = value * 1.5 +'px';*/
+                header.style.top = value * 0.5 + 'px';
+            })
+        </script>
+    </body>
 </html>
