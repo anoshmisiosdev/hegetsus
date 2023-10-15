@@ -65,6 +65,7 @@ color: #32292F;
 }
 .carousel-inner {
     padding: 1em;
+    padding-top: 100px;
 
   }
   .card {
