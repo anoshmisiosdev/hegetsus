@@ -79,13 +79,13 @@ body{
 {
     max-width: fit-content;
     width: 100%;
-    background-color: #3f179e;
+    background-color: #500fea;
     padding: 40px 0;
 }
 .slide-content{
     overflow: hidden;
     margin: 0 40px;
-    background-color: #3f179e;
+    background-color: #500fea;
     border-radius: 25px;
 }
 .card{
