@@ -2,25 +2,26 @@
 <html>
 
 <head>
+    <script src="https://apis.google.com/js/api.js"></script>
     <script src="https://accounts.google.com/gsi/client" async></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script type='text/javascript' src='https://apis.google.com/js/platform.js' async defer></script>
     <meta name="google-signin-client_id"
-        content="125257763090-kad4a17muhdr70ujqfchq20e3fc30jl9.apps.googleusercontent.com">
+        content="125257763090-p5800112ordnelpe23i2lbkavunsv5vq.apps.googleusercontent.com">
     <title>Tech Support-CSP Website</title>
-    <script>
-        function onLoad() {
-            gapi.load('auth2', function () {
-                gapi.auth2.init();
-            });
-        }
-        window.onLoadCallback = function () {
-            gapi.auth2.init({
-                client_id: '125257763090-kad4a17muhdr70ujqfchq20e3fc30jl9.apps.googleusercontent.com'
-            });
-        }
-    </script>
     <link rel="stylesheet" type="text/css" href="style.css">
+    <script>
+        function initGoogleAuth() {
+            gapi.load('auth2', function() {
+              gapi.auth2.init({
+                client_id: '125257763090-p5800112ordnelpe23i2lbkavunsv5vq.apps.googleusercontent.com',
+              }).then(function(auth2) {
+                // Here, auth2 is the GoogleAuth object, and you can use it to sign in, sign out, and perform other authentication-related tasks.
+              });
+            });
+          }
+          
+    </script>
 </head>
 
 <body>
@@ -31,31 +32,26 @@
             <li><a href="projects.html">Projects</a></li>
             <li>
                 <div id="g_id_onload"
-                    data-client_id="125257763090-kad4a17muhdr70ujqfchq20e3fc30jl9.apps.googleusercontent.com"
+                    data-client_id="125257763090-p5800112ordnelpe23i2lbkavunsv5vq.apps.googleusercontent.com"
                     data-context="signin" data-ux_mode="popup" data-callback="OnSignIn" data-auto_prompt="false">
                 </div>
 
                 <div class="g_id_signin" data-type="standard" data-shape="pill" data-theme="filled_blue"
                     data-text="signin_with" data-size="large" data-logo_alignment="left">
                 </div>
-                <script >
-                    function OnSignIn(googleUser) {
-                        var auth2 = gapi.auth2.getAuthInstance()
-                        if (auth2.isSignedIn.get()) {
-                            var profile = auth2.currentUser.get().getBasicProfile();
-                            console.log('ID: ' + profile.getId());
-                            console.log('Full Name: ' + profile.getName());
-                            console.log('Given Name: ' + profile.getGivenName());
-                            console.log('Family Name: ' + profile.getFamilyName());
-                            console.log('Image URL: ' + profile.getImageUrl());
-                            console.log('Email: ' + profile.getEmail());
-                        }
-                    }
+                <script>
+                    function OnSignIn() {
+                       var minor = gapi.auth2.getAuthInstance()
+                       if(minor = true){
+                        var token_id = gapi.auth2.AuthResponse()
+                       }
+                      }
+
                 </script>
             </li>
             <li><a href="Contact.html">Contacts</a></li>
             <li><a href="#" onclick="signOut();">Sign out</a>
-                <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js">
+                <script src="login.js">
                     function signOut() {
 
                         var auth2 = gapi.auth2.getAuthInstance();
