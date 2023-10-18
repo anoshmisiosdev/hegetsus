@@ -83,18 +83,18 @@ body{
 {
     max-width: fit-content;
     width: 100%;
-    background-color: #500fea;
+    background-color: #6a5a8f;
     padding: 40px 0;
 }
 .slide-content{
     overflow: hidden;
     margin: 0 40px;
-    background-color: #500fea;
+    background-color: #6a5a8f;
     border-radius: 25px;
 }
 .card{
     border-radius: 25px;
-    background-color: #6845bb;
+    background-color: #fff;
 }
 .image-content,
 .card-content{
@@ -133,7 +133,7 @@ body{
 .overlay::after
 {
     border-radius: 0 25px 0 0;
-    background-color: #6845bb;
+    background-color: #fff;
 
 }
 .card-image
@@ -142,7 +142,7 @@ body{
     height: 150px;
     width: 150px;
     border-radius: 50%;
-    background: #6845bb;
+    background: #13082f;
     padding: 3px;
 
 }
@@ -165,7 +165,7 @@ body{
 {
     font-size: 14px;
     text-align: center;
-    color: #ffffff;
+    color: #424145;
 }
 .button
 {
@@ -204,7 +204,7 @@ body{
 }
 .swiper-pagination.bullet
 {
-    background-color: #3f179e; 
+    background-color: #ffffff; 
     opacity: 1;
 }
 .swiper-pagination.bullet-active

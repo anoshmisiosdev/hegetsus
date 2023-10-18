@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
 *
 {
     margin: 0;
@@ -14,7 +14,6 @@ body
     /*background: linear-gradient(#ead707,#ceb007, #cb9d06, #cd930a,#c76e07, #ac4505, #a40808);*/
     /*background: linear-gradient(#F0F7F4, #99E1D9, #70ABAF, #705D56, #32292F);*/
     /*background: linear-gradient(#d6cea5, #afa56f);*/
-    background: #a98958
 }
 header
 {
@@ -23,14 +22,14 @@ header
     left: 0;
     width: 100%;
     padding: 30 px 100px;
-    display: flex;
+    display: static;
     justify-content: space-between;
     align-items: center;
     z-index: 10000;
 }
 header .logo
 {
-color: #32292F;
+color: #4d5143;
 font-weight: 700;
 text-decoration: none;
 font-size: 5em;
@@ -39,7 +38,7 @@ letter-spacing: 2px;
 }
 header ul
 {
- display: flex; 
+ display: static; 
  justify-content: center;
  align-items: center; 
 }
@@ -60,42 +59,152 @@ header ul li a
 header ul li a:hover,
 header ul li a.active
 {
-background: #a98958;
-color: #32292F;
+background: #fff;
+color: #705D56;
 }
-.carousel-inner {
-    padding: 1em;
-    padding-top: 100px;
-
-  }
-  .card {
-    margin: 0 0.5em;
-    box-shadow: 2px 6px 8px 0 rgba(22, 22, 26, 0.18);
-    border: none;
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+body{
+    min-height: 100vh;
+    display: static;
+    align-items: center;
+    justify-content: center;
+    background-color: #b7b7a4;
+}
+.slide-container
+{
+    max-width: fit-content;
+    width: 100%;
+    background-color: #6b705c;
+    padding: 40px 0;
+}
+.slide-content{
+    overflow: hidden;
+    margin: 0 40px;
+    background-color: #6b705c;
+    border-radius: 25px;
+}
+.card{
+    border-radius: 25px;
     background-color: #fff;
-  }
-  @media (min-width: 768px) {
-    .carousel-item {
-      margin-right: 0;
-      flex: 0 0 33.333333%;
-      display: block;
-    }
-    .carousel-inner {
-      display: flex;
-    }
-  }
-  .card .img-wrapper {
-      max-width: 100%;
-      height: 13em;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-  }
-  .card img {
-      max-height: 100%;
-  }
-  @media (max-width: 767px) {
-    .card .img-wrapper {
-      height: 17em;
-    }
-  }
+}
+.image-content,
+.card-content{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px 14px;  
+}
+.image-content
+{
+    position: relative;
+    row-gap: 5px;
+    padding: 25px 0;
+    
+}
+.overlay
+{
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background-color: #b7b7a4;
+    border-radius: 25px 25px 0 25px;
+}
+.overlay::before,
+.overlay::after{
+    content: '';
+    position: absolute;
+    right: 0;
+    bottom: -40px;
+    height: 40px;
+    width: 40px;
+    background-color: #b7b7a4;
+}
+.overlay::after
+{
+    border-radius: 0 25px 0 0;
+    background-color: #fff;
+
+}
+.card-image
+{
+    position: relative;
+    height: 150px;
+    width: 150px;
+    border-radius: 50%;
+    background: #4d5143;
+    padding: 3px;
+
+}
+.card-image .card-img
+{
+   height: 100%;
+   width: 100%;
+   object-fit: cover;
+   border-radius: 50%;
+   border: 4px solid #ffffff;
+
+}
+.name
+{
+    font-size: 20px;
+    font-weight: 500;
+    color: #333;
+}
+.description
+{
+    font-size: 14px;
+    text-align: center;
+    color: #424145;
+}
+.button
+{
+    border: none;
+    font-size: 16px;
+    color: #fff;
+    padding: 8px 16px;
+    background-color: #6b705c;
+    border-radius: 6px;
+    margin: 14px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+.button:hover{
+    background: #7b806a;  
+}
+.swiper-navBtn{
+    color: #7b806a;
+    transition: color 0.3s ease;
+}
+.swiper-navBtn:hover{
+    color: #6b705c;
+}
+.swiper-navBtn::before,
+.swiper-navBtn::after
+{
+    font-size: 40px;
+}
+.swiper-button-next
+{
+    right: 0;
+}
+.swiper-button-prev
+{
+    left: 0;
+}
+.swiper-pagination.bullet
+{
+    background-color: #ffffff; 
+    opacity: 1;
+}
+.swiper-pagination.bullet-active
+{
+    background-color: #3f179e; 
+    opacity: 1;
+}
