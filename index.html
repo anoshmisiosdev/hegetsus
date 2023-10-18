@@ -10,6 +10,8 @@
     <title>Tech Support-CSP Website</title>
     <link rel="stylesheet" type="text/css" href="style.css">
     <script>
+        let signinbutton = document.getElementById('sign_out')
+        signinbutton.style.display = 'none';
         function initGoogleAuth() {
             gapi.load('auth2', function () {
                 gapi.auth2.init({
@@ -23,29 +25,13 @@
     </script>
 </head>
 
-<body onload="initGoogleAuth()">
+<body onload="initGoogleAuth()
+let signinbutton = document.getElementById('sign_out')
+signinbutton.style.display = 'none';">
     <header>
         <a href="#" class="logo">Tech Support</a>
         <ul>
-            <li><a href="index.html" class="active">Home</a></li>
-            <li><a href="projects.html">Projects</a></li>
-            <li>
-                <a href="#" onclick="signOut();">Leave</a>
-                <script>
-                    function signOut() {
-                        gapi.auth2.getAuthInstance().signOut().then(function () {
-                            var gIdSignInElements = document.getElementsByClassName('g_id_signin'); 
-                            console.log('User signed out.');
-                            for (var i = 0; i < gIdSignInElements.length; i++) {
-                                gIdSignInElements[i].style.visibility = 'collapse';
-                            }
-                        });
-                    }
-
-                </script>
-            </li>
-            <li><a href="Contact.html">Contacts</a></li>
-            <li>
+            <li id="sign_in">
                 <div id="g_id_onload"
                     data-client_id="125257763090-p5800112ordnelpe23i2lbkavunsv5vq.apps.googleusercontent.com"
                     data-context="signin" data-ux_mode="popup" data-callback="OnSignIn" data-auto_prompt="false">
@@ -76,10 +62,32 @@
                             for (var i = 0; i < gIdSignInElements.length; i++) {
                                 gIdSignInElements[i].style.visibility = 'collapse';
                             }
+                            let signinbutton = document.getElementById('sign_out')
+                            signinbutton.style.display = 'flex'
                         }
                     }
                 </script>
             </li>
+            <li id="sign_out">
+                <a href="#" onclick="signOut();">Leave</a>
+                <script>
+                    function signOut() {
+                        gapi.auth2.getAuthInstance().signOut().then(function () {
+                            var gIdSignInElements = document.getElementsByClassName('g_id_signin');
+                            console.log('User signed out.');
+                            for (var i = 0; i < gIdSignInElements.length; i++) {
+                                gIdSignInElements[i].style.visibility = 'visible';
+                            }
+                            let signinbutton = document.getElementById('sign_out')
+                            signinbutton.style.display = 'none'
+                        });
+                    }
+
+                </script>
+            </li>
+            <li><a href="index.html" class="active">Home</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="Contact.html">Contacts</a></li>
         </ul>
     </header>
     <section>
