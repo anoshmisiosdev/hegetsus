@@ -248,3 +248,48 @@ body{
     border-radius: 20px;
 
   }
+
+  .aboutmeNAME{
+    
+    position: flex;
+    color: white;
+    font-size: 5vh;
+    display: block;
+    border-radius: 20px;
+    border-width: 8px;
+    border-color: white;
+    text-align: center; 
+    
+  }
+  .aboutmeIMAGE{
+    position: flex;
+    height: fit-content;
+    
+    display: block;
+    text-align: center;
+    align-content: center;
+  }
+
+  .aboutmeIMAGEIMAGE{
+    border-style: double;
+    border-radius: 16px;
+    border-color: white;
+    border-width: 10px;
+  }
+  .aboutmeBIO{
+    position: absolute; 
+    left: 50%; 
+    margin-left: -340px; 
+    width: 680px;
+    align-self: center;
+    text-align: center;
+    color: white;
+    font-size: 3vh;
+    font-family: fantasy;
+    border: double;
+    border-radius: 16px;
+    border-color: green;
+    border-width: 10px;
+    
+  }
+  

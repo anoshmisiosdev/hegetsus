@@ -25,8 +25,9 @@
             </li>
         </ul>
     </header>   
-    <div>    
-        <?php
+    <p><br></br></p>
+
+    <?php
             #Connection Values
             $servername = "localhost";
             $username = "root";
@@ -49,8 +50,11 @@
             $newresult = $conn->query($newquery);
             if($newresult->num_rows>0){
                 while($row = $newresult->fetch_assoc()){
-                    echo '<h2>'.$row["mNAMES"].'</h2>';
-                    echo '<p>'.$row["mBIO"].'</p>';
+                    echo '<h2 class ="aboutmeNAME">'.$row["mNAMES"].'</h2>';
+                    echo '<div class="aboutmeIMAGE">
+                            <img src="riyan.png"  height="400" class="aboutmeIMAGEIMAGE">
+                        </div>';
+                    echo '<p class ="aboutmeBIO">'.$row["mBIO"].'</p>';    
                 }
             }
             
@@ -58,15 +62,8 @@
         
             $conn->close();
         ?>
-    </div>
-    <div>
-        <!--Put a header with name -->
-
-        <!--Put image using linked file -->
-
-        <!--Put bio here formatting -->
-    </div>
-
+        
+        
 
 <html lang="en">
     <head>
@@ -75,120 +72,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>About Us-CSP Website</title>
 
-       <!-- <link rel="stylesheet" href="swiper-bundle.min.css"> -->
-        
-        <!-- <link rel="stylesheet" href="About.css"> -->
-    </head>
-<!--
-    </head>
-    <body>
-        <div class="slide-container swiper">
-            <div class="slide-content">
-                <div class="card-wrapper swiper-wrapper">
-                    <div class="card swiper-slide">
-                        <div class="image-content">
-                            <span class="overlay"></span>
-
-                            <div class="card-image">
-                                <img src="riyan.png" alt="" class="card-img">
-                            </div>
-                        </div>
-
-                        <div class="card-content">
-                            <h2 class="name">Riyan Anosh</h2>
-                            <p class="description">Riyan is the Webmaster and team lead. He is profecient in HTML, Python, and knows how to host a website. He enjoys playing old-school video games and hanging out with his brother, Rehan Anosh.</p>
-                            <button class="button">View More</button>
-                            
-                        </div>
-                    </div>
-                    <div class="card swiper-slide">
-                        <div class="image-content">
-                            <span class="overlay"></span>
-
-                            <div class="card-image">
-                                <img src="rehan.png" alt="" class="card-img">
-                            </div>
-                        </div>
-
-                        <div class="card-content">
-                            <h2 class="name">Rehan Mohhamad</h2>
-                            <p class="description">Rehan is the tech support and facilitater. He knows HTML and some Python. He enjoys reading classics, such as The Three Musketeers. He aslo enjoys playing sports such as Badminton and Basketball. He is the gigachad brother of Amaan, and carries this entire team on his back.</p>
-                            <button class="button">View More</button>
-                        </div>
-                    </div><div class="card swiper-slide">
-                        <div class="image-content">
-                            <span class="overlay"></span>
-
-                            <div class="card-image">
-                                <img src="Amaan2.jpg" alt="" class="card-img">
-                            </div>
-                        </div>
-
-                        <div class="card-content">
-                            <h2 class="name">Amaan Mohhamad</h2>
-                            <p class="description">Amaan is the Brother of the giga chad Rehan Mohammad and is the Back-End Developer along with being the Coordinator. He is skilled in Python HTML, Java, and Javascript. He enjoys gaming, reading literary classics, and his favorite color is blue.</p>
-                            <button class="button">View More</button>
-                        </div>
-                    </div><div class="card swiper-slide">
-                        <div class="image-content">
-                            <span class="overlay"></span>
-
-                            <div class="card-image">
-                                <img src="rishan.png" alt="" class="card-img">
-                            </div>
-                        </div>
-
-                        <div class="card-content">
-                            <h2 class="name">Rishaan Joshi</h2>
-                            <p class="description">Rishaan is one of the Content Specialists and the Entertainer. He has a bad sense of humor, is rather creative, has generally good ideas, and is a movie addict. He also believes Riyan is missing a chromosome and thinks he looks better bald. He also created our team logo.</p>
-                            <button class="button">View More</button>
-                        </div>
-                    </div><div class="card swiper-slide">
-                        <div class="image-content">
-                            <span class="overlay"></span>
-
-                            <div class="card-image">
-                                <img src="jason.png" alt="" class="card-img">
-                            </div>
-                        </div>
-
-                        <div class="card-content">
-                            <h2 class="name">Jason Lai</h2>
-                            <p class="description">Jason is one of the Content Specialists and the Event Planner. He is experienced in Python, HTML, Lua, and knows a little bit of Java/C/C++. He enjoys swimming, badminton, and loves the Balkans despite being Chinese. He can't read.</p>
-                            <button class="button">View More</button>
-                        </div>
-                    </div><div class="card swiper-slide">
-                        <div class="image-content">
-                            <span class="overlay"></span>
-
-                            <div class="card-image">
-                                <img src="varin.png" alt="" class="card-img">
-                            </div>
-                        </div>
-
-                        <div class="card-content">
-                            <h2 class="name">Varin Adusumalli</h2>
-                            <p class="description">Varin is the current Front-End Developer and Decorator. He is skilled in C, Python, HTML, and other languages. He enjoys the movie Intersteller, knows Muay Thai and boxing, loves football.</p>
-                            <button class="button">View More</button>
-                        </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="swiper-button-next swiper-navBtn"></div>
-            <div class="swiper-button-prev swiper-navBtn"></div>
-            <div class="swiper-pagination"></div>
-
-        </div>
-    </body>
-
-    <script src="swiper-bundle.min.js"></script>
-
-    <script src="script.js"></script>
--->
-    <div>
-        <p>HELLOWORLD I AM HERE</p>
+       </head>
+    
 </body>
 </html>
 
