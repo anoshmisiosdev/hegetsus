@@ -1,18 +1,72 @@
 <!DOCTYPE html>
 <head>
-    <title>About Us-CSP Website</title>
+    <title>Riyan Anosh</title>
     <link rel="stylesheet" type="text/css" href="About.css">
 </head>
-<body>
+<body style="background-image: url(RiyanAboutMe.gif);">
     <header>
-        <a href="#" class="logo">About</a>
-        <ul>
-            <li><a href="index.html" class="active">Home</a></li>
+        
+        <ul >
+            <li><a href="index.html">Home</a></li>
             <li><a href="projects.html">Projects</a></li>
             <li><a href="#">Login/Sign In</a></li>
             <li><a href="Contact.html">Contacts</a></li>
+            <li>
+                <div class="dropdown">
+                    <span>Other Members ▼</span>
+                    <div class="dropdown-content">
+                      <label>Rehan M.</label>
+                      <p>Amaan M.</p>
+                      <p>Varin A.</p>
+                      <p>Jason L.</p>
+                      <p>Rishaan J.</p>
+                    </div>
+                  </div>
+            </li>
         </ul>
     </header>   
+    <div>    
+        <?php
+            #Connection Values
+            $servername = "localhost";
+            $username = "root";
+            $password = '123456';
+            #$password = ""; # Mr Millard's password is an empty string.
+
+            // Create connection to MySQL
+            $conn = new mysqli($servername, $username, $password);
+
+            // Test connection
+            if ($conn->connect_error) {
+                die("Connection failed: " . $conn->connect_error);
+            }
+            
+            # Draw data from database using the query() method
+            $conn->query("use teamtechsupport;"); #First select the active database
+            
+            $newquery = 'select mNAMES,mBIO from members where mID = 1';
+            
+            $newresult = $conn->query($newquery);
+            if($newresult->num_rows>0){
+                while($row = $newresult->fetch_assoc()){
+                    echo '<h2>'.$row["mNAMES"].'</h2>';
+                    echo '<p>'.$row["mBIO"].'</p>';
+                }
+            }
+            
+            
+        
+            $conn->close();
+        ?>
+    </div>
+    <div>
+        <!--Put a header with name -->
+
+        <!--Put image using linked file -->
+
+        <!--Put bio here formatting -->
+    </div>
+
 
 <html lang="en">
     <head>
@@ -21,11 +75,11 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>About Us-CSP Website</title>
 
-        <link rel="stylesheet" href="swiper-bundle.min.css">
+       <!-- <link rel="stylesheet" href="swiper-bundle.min.css"> -->
         
-        <link rel="stylesheet" href="About.css">
-
-
+        <!-- <link rel="stylesheet" href="About.css"> -->
+    </head>
+<!--
     </head>
     <body>
         <div class="slide-container swiper">
@@ -44,6 +98,7 @@
                             <h2 class="name">Riyan Anosh</h2>
                             <p class="description">Riyan is the Webmaster and team lead. He is profecient in HTML, Python, and knows how to host a website. He enjoys playing old-school video games and hanging out with his brother, Rehan Anosh.</p>
                             <button class="button">View More</button>
+                            
                         </div>
                     </div>
                     <div class="card swiper-slide">
@@ -131,8 +186,11 @@
     <script src="swiper-bundle.min.js"></script>
 
     <script src="script.js"></script>
-
-    </html>
+-->
+    <div>
+        <p>HELLOWORLD I AM HERE</p>
+</body>
+</html>
 
     
     
