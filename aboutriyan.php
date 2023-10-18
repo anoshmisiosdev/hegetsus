@@ -25,6 +25,48 @@
             </li>
         </ul>
     </header>   
+    <div>    
+        <?php
+            #Connection Values
+            $servername = "localhost";
+            $username = "root";
+            $password = '123456';
+            #$password = ""; # Mr Millard's password is an empty string.
+
+            // Create connection to MySQL
+            $conn = new mysqli($servername, $username, $password);
+
+            // Test connection
+            if ($conn->connect_error) {
+                die("Connection failed: " . $conn->connect_error);
+            }
+            
+            # Draw data from database using the query() method
+            $conn->query("use teamtechsupport;"); #First select the active database
+            
+            $newquery = 'select mNAMES,mBIO from members where mID = 1';
+            
+            $newresult = $conn->query($newquery);
+            if($newresult->num_rows>0){
+                while($row = $newresult->fetch_assoc()){
+                    echo '<h2>'.$row["mNAMES"].'</h2>';
+                    echo '<p>'.$row["mBIO"].'</p>';
+                }
+            }
+            
+            
+        
+            $conn->close();
+        ?>
+    </div>
+    <div>
+        <!--Put a header with name -->
+
+        <!--Put image using linked file -->
+
+        <!--Put bio here formatting -->
+    </div>
+
 
 <html lang="en">
     <head>
@@ -145,40 +187,8 @@
 
     <script src="script.js"></script>
 -->
-    <div>    
-        <?php
-            #Connection Values
-            $servername = "localhost";
-            $username = "root";
-            $password = '123456';
-            #$password = ""; # Mr Millard's password is an empty string.
-
-            // Create connection to MySQL
-            $conn = new mysqli($servername, $username, $password);
-
-            // Test connection
-            if ($conn->connect_error) {
-                die("Connection failed: " . $conn->connect_error);
-            }
-            
-            # Draw data from database using the query() method
-            $conn->query("use teamtechsupport;"); #First select the active database
-            
-            $newquery = 'select mNAMES,mBIO from members where mID < 7';
-            
-            $newresult = $conn->query($newquery);
-            if($newresult->num_rows>0){
-                while($row = $newresult->fetch_assoc()){
-                    echo '<h2>'.$row["mNAMES"].'</h2>';
-                    echo '<p>'.$row["mBIO"].'</p>';
-                }
-            }
-            
-            
-        
-            $conn->close();
-        ?>
-    </div>
+    <div>
+        <p>HELLOWORLD I AM HERE</p>
 </body>
 </html>
 
