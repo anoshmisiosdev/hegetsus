@@ -62,28 +62,28 @@
         </ul>
     </header>
     <section>
-        <img src="stars.png" id="stars">
+        <img src="boom booms.png" id="boom">
         <img src="moon.png" id="moon">
 
         <a href="#sec" id="btn">About Us</a>
         <img src="building.png" id="building">
-        <img src="burjkhalifa.png" id="burjkhalifa">
+        <img src="Robot_3.png" id="robots">
     </section>
     <script>
-        let stars = document.getElementById('stars');
+        let boom = document.getElementById('boom');
         let moon = document.getElementById('moon');
         let building = document.getElementById('building');
         let text = document.getElementById('text');
         let btn = document.getElementById('btn');
-        let burjkhalifa = document.getElementById('burjkhalifa');
+        let robots = document.getElementById('robots');
         let header = document.querySelector('header');
 
         window.addEventListener('scroll', function () {
             let value = window.scrollY;
-            stars.style.left = value * 0.25 + 'px';
+            boom.style.top = value * 0.25 + 'px';
             moon.style.top = value * 0.27 + 'px';
             building.style.top = value * 0.5 + 'px';
-            burjkhalifa.style.top = value * 0 + 'px';
+            robots.style.top = value * 0 + 'px';
             /*text.style.marginRight = value * 0 +'px';*/
             /* text.style.marginTop = value * 1.5 +'px';*/
             header.style.top = value * 0.5 + 'px';

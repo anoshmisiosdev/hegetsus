@@ -100,11 +100,11 @@ section img#moon
     mix-blend-mode: screen;
     width: 900px;
 }
-section img#burjkhalifa
+/*section img#robots
 {
     z-index: 10;
 
-}
+}*/
 #text
 {
 position: absolute;
