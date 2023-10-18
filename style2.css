@@ -39,7 +39,7 @@ letter-spacing: 2px;
 }
 header ul
 {
- display: flex; 
+ display: static; 
  justify-content: center;
  align-items: center; 
 }
@@ -55,7 +55,7 @@ header ul li a
   font-weight: 400;
   padding: 6px 15px;
   color: #fff; 
-  border-radius: 20px;
+  border-radius: 200px;
 }
 header ul li a:hover,
 header ul li a.active
