@@ -10,8 +10,6 @@
     <title>Tech Support-CSP Website</title>
     <link rel="stylesheet" type="text/css" href="style.css">
     <script>
-        let signinbutton = document.getElementById('sign_out')
-        signinbutton.style.display = 'none';
         function initGoogleAuth() {
             gapi.load('auth2', function () {
                 gapi.auth2.init({
@@ -25,9 +23,7 @@
     </script>
 </head>
 
-<body onload="initGoogleAuth()
-let signinbutton = document.getElementById('sign_out')
-signinbutton.style.display = 'none';">
+<body onload="initGoogleAuth()">
     <header>
         <a href="#" class="logo">Tech Support</a>
         <ul>
@@ -62,8 +58,8 @@ signinbutton.style.display = 'none';">
                             for (var i = 0; i < gIdSignInElements.length; i++) {
                                 gIdSignInElements[i].style.visibility = 'collapse';
                             }
-                            let signinbutton = document.getElementById('sign_out')
-                            signinbutton.style.display = 'flex'
+                            let siginbutton = document.getElementById('sign_out')
+                            siginbutton.style.display = 'none'
                         }
                     }
                 </script>
