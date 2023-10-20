@@ -52,7 +52,7 @@
                 while($row = $newresult->fetch_assoc()){
                     echo '<h2 class ="aboutmeNAME">'.$row["mNAMES"].'</h2>';
                     echo '<div class="aboutmeIMAGE">
-                            <img src="varin2.png"  height="400" class="aboutmeIMAGEIMAGE">
+                            <img src="VARIN.png"  height="400" class="aboutmeIMAGEIMAGE">
                         </div>';
                     echo '<p class ="aboutmeBIO">'.$row["mBIO"].'</p>';    
                 }
