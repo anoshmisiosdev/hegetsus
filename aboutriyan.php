@@ -59,7 +59,7 @@
                     echo '<div class="aboutmeIMAGE">
                             <img src="riyan.png"  height="400" class="aboutmeIMAGEIMAGE">
                         </div>';
-                    echo '<p class ="aboutmeBIO">'.$row["mBIO"].'</p>';    
+                    echo '<p class ="aboutmeBIO" style="border-color:green;">'.$row["mBIO"].'</p>';    
                 }
             }
             
