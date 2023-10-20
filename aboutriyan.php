@@ -3,6 +3,11 @@
     <title>Riyan Anosh</title>
     <link rel="stylesheet" type="text/css" href="About.css">
 </head>
+<style>
+    .aboutlinks{
+    color: green;
+    }
+</style>
 <body style="background-image: url(RiyanAboutMe.gif);">
     <header>
         
@@ -15,11 +20,11 @@
                 <div class="dropdown">
                     <span>Other Members ▼</span>
                     <div class="dropdown-content">
-                      <label>Rehan M.</label>
-                      <p>Amaan M.</p>
-                      <p>Varin A.</p>
-                      <p>Jason L.</p>
-                      <p>Rishaan J.</p>
+                      <a class="aboutlinks" href="aboutrehan.php">Rehan M.</a>
+                      <a class="aboutlinks" href="aboutamaan.php">Amaan M.</a>
+                      <a class="aboutlinks" href="aboutvarin.php">Varin A.</a>
+                      <a class="aboutlinks" href="aboutjason.php">Jason L.</a>
+                      <a class="aboutlinks" href="aboutrishaan.php">Rishaan J.</a>
                     </div>
                   </div>
             </li>
