@@ -29,13 +29,16 @@
         <ul>
             <li id="sign_in">
                 <div id="g_id_onload"
-                    data-client_id="125257763090-p5800112ordnelpe23i2lbkavunsv5vq.apps.googleusercontent.com"
-                    data-context="signin" data-ux_mode="popup" data-callback="OnSignIn" data-auto_prompt="false">
-                </div>
-
-                <div class="g_id_signin" data-type="standard" data-shape="pill" data-theme="filled_blue"
-                    data-text="signin_with" data-size="large" data-logo_alignment="left">
-                </div>
+                data-client_id="125257763090-p5800112ordnelpe23i2lbkavunsv5vq.apps.googleusercontent.com"
+                data-context="signin"
+                data-ux_mode="popup"
+                data-callback="OnSignIn"
+                data-itp_support="true">
+           </div>
+           
+           <div class="g_id_signin" data-type="standard" data-shape="pill" data-theme="filled_blue"
+                data-text="signin_with" data-size="large" data-logo_alignment="left">
+           </div>
                 <script>
                     function OnSignIn(googleUser) {
                         var authInstance = gapi.auth2.getAuthInstance();
@@ -60,7 +63,7 @@
                             }
                             let siginbutton = document.getElementById('sign_out')
                             siginbutton.style.display = 'none'
-                        }
+}
                     }
                 </script>
             </li>
