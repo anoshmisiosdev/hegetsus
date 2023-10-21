@@ -1,3 +1,4 @@
 Header always set Access-Control-Allow-Origin "http://10.156.56.8, https://anoshmisiosdev.github.io"
 Header always set Access-Control-Allow-Methods "POST, GET, OPTIONS, PUT, DELETE"
 Header always set Access-Control-Allow-Headers "X-Requested-With, Content-Type, Origin, Authorization"
+Header set Cross-Origin-Opener-Policy "same-origin; allow-popups"
