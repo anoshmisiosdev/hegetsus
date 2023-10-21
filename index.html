@@ -64,6 +64,7 @@ siginbutton.style.display = 'none'
                             for (var i = 0; i < gIdSignInElements.length; i++) {
                                 gIdSignInElements[i].style.visibility = 'collapse';
                             }
+                            console.log(authInstance.isSignedIn.get())
                             let siginbutton = document.getElementById('sign_out')
                             siginbutton.style.display = 'list-item'
                             let image = new String(itoken.picture);
