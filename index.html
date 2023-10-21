@@ -2,13 +2,12 @@
 <html>
 
 <head>
+    <title>Tech Support-CSP Website</title>
     <script src="https://accounts.google.com/gsi/client" async></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script type='text/javascript' src='https://apis.google.com/js/platform.js' async defer></script>
     <meta name="google-signin-client_id"
         content="125257763090-p5800112ordnelpe23i2lbkavunsv5vq.apps.googleusercontent.com">
-    <title>Tech Support-CSP Website</title>
-    <link rel="stylesheet" type="text/css" href="style.css">
     <script>
         function initGoogleAuth() {
             gapi.load('auth2', function () {
@@ -21,24 +20,25 @@
         }
 
     </script>
+    <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 
-<body onload="initGoogleAuth()">
+<body onload="initGoogleAuth()
+let siginbutton = document.getElementById('sign_out')
+siginbutton.style.display = 'none'
+">
     <header>
         <a href="#" class="logo">Tech Support</a>
         <ul>
             <li id="sign_in">
                 <div id="g_id_onload"
-                data-client_id="125257763090-p5800112ordnelpe23i2lbkavunsv5vq.apps.googleusercontent.com"
-                data-context="signin"
-                data-ux_mode="popup"
-                data-callback="OnSignIn"
-                data-auto_prompt="false">
-           </div>
-           
-           <div class="g_id_signin" data-type="standard" data-shape="pill" data-theme="filled_blue"
-                data-text="signin_with" data-size="large" data-logo_alignment="left">
-           </div>
+                    data-client_id="125257763090-p5800112ordnelpe23i2lbkavunsv5vq.apps.googleusercontent.com"
+                    data-context="signin" data-ux_mode="popup" data-callback="OnSignIn" data-auto_prompt="false">
+                </div>
+
+                <div class="g_id_signin" data-type="standard" data-shape="pill" data-theme="filled_blue"
+                    data-text="signin_with" data-size="large" data-logo_alignment="left">
+                </div>
                 <script>
                     function OnSignIn(googleUser) {
                         var authInstance = gapi.auth2.getAuthInstance();
@@ -56,17 +56,25 @@
 
                                 return JSON.parse(jsonPayload);
                             }
-                            console.log(parseJwt(id_token));
+                            const itoken = (parseJwt(id_token));
+                            console.log(itoken.given_name, itoken.family_name)
+                            console.log(itoken.sub)
                             var gIdSignInElements = document.getElementsByClassName('g_id_signin');
                             for (var i = 0; i < gIdSignInElements.length; i++) {
                                 gIdSignInElements[i].style.visibility = 'collapse';
                             }
                             let siginbutton = document.getElementById('sign_out')
-                            siginbutton.style.display = 'none'
-}
+                            siginbutton.style.display = 'list-item'
+                            let image = new String(itoken.picture);
+                            document.getElementById('googleimage').src = image
+                        }
                     }
                 </script>
             </li>
+            <li><img id="googleimage" style="border-radius: 50%; "/></li>
+            <li><a href="index.html" class="active">Home</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="Contact.html">Contacts</a></li>
             <li id="sign_out">
                 <a href="#" onclick="signOut();">Leave</a>
                 <script>
@@ -84,16 +92,13 @@
 
                 </script>
             </li>
-            <li><a href="index.html" class="active">Home</a></li>
-            <li><a href="projects.html">Projects</a></li>
-            <li><a href="Contact.html">Contacts</a></li>
         </ul>
     </header>
     <section>
         <img src="stars.png" id="boom">
         <img src="moon.png" id="moon">
 
-        
+
         <img src="building.png" id="building">
         <img src="burjkhalifa.png" id="robots">
     </section>
