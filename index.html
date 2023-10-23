@@ -42,6 +42,10 @@ siginbutton.style.display = 'none'
                 </div>
                 <script>
                     function OnSignIn(googleUser) {
+                        document.cookie = 'cookie1=SIDCC; SameSite=none; Secure';
+                        document.cookie = 'cookie2=__Secure-1PSIDCC; SameSite=none; Secure';
+                        document.cookie = 'cookie3=G_ENABLED_IDPS; SameSite=none; Secure';
+                        document.cookie = 'cookie4=g_state; SameSite=none; Secure';
                         var authInstance = gapi.auth2.getAuthInstance();
                         if (authInstance.isSignedIn.get()) {
                             document.getElementById('g_id_onload').style.visibility = 'hidden'
