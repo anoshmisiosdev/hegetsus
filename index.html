@@ -42,13 +42,13 @@ siginbutton.style.display = 'none'
                 </div>
                 <script>
                     function OnSignIn(googleUser) {
-                        document.cookie = 'cookie1=SIDCC; SameSite=none; Secure';
-                        document.cookie = 'cookie2=__Secure-1PSIDCC; SameSite=none; Secure';
-                        document.cookie = 'cookie3=G_ENABLED_IDPS; SameSite=none; Secure';
-                        document.cookie = 'cookie4=g_state; SameSite=none; Secure';
                         var authInstance = gapi.auth2.getAuthInstance();
                         if (authInstance.isSignedIn.get()) {
                             document.getElementById('g_id_onload').style.visibility = 'hidden'
+                            document.cookie = 'SIDCC=SIDCC; SameSite=none; Secure';
+                            document.cookie = '__Secure-1PSIDCC=__Secure-1PSIDCC; SameSite=none; Secure';
+                            document.cookie = 'G_ENABLED_IDPS=G_ENABLED_IDPS; SameSite=none; Secure';
+                            document.cookie = 'g_state=g_state; SameSite=none; Secure';
                             // The user is signed in
                             var id_token = authInstance.currentUser.get().getAuthResponse().id_token;
                             console.log(id_token)
@@ -77,7 +77,7 @@ siginbutton.style.display = 'none'
                     }
                 </script>
             </li>
-            <li><img id="googleimage" style="border-radius: 50%; "/></li>
+            <li><img id="googleimage" style="border-radius: 50%; " /></li>
             <li><a href="index.html" class="active">Home</a></li>
             <li><a href="projects.html">Projects</a></li>
             <li><a href="Contact.html">Contacts</a></li>
@@ -93,6 +93,7 @@ siginbutton.style.display = 'none'
                             }
                             let signinbutton = document.getElementById('sign_out')
                             signinbutton.style.display = 'none'
+                            document.getElementById('googleimage').src = 'nothing'
                         });
                     }
 
