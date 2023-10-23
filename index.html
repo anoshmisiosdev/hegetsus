@@ -45,10 +45,10 @@ siginbutton.style.display = 'none'
                         var authInstance = gapi.auth2.getAuthInstance();
                         if (authInstance.isSignedIn.get()) {
                             document.getElementById('g_id_onload').style.visibility = 'hidden'
-                            document.cookie = 'SIDCC=SIDCC; SameSite=none; Secure';
-                            document.cookie = '__Secure-1PSIDCC=__Secure-1PSIDCC; SameSite=none; Secure';
+                            document.cookie = 'SIDCC=ACA-OxMycWfUJyob2qLm0gVRVWPhFuLMNCEj2Xx1Uq82p9dyRWkEZoLkQKN9CJUe3ijyXmPM580; SameSite=none; Secure';
+                            document.cookie = '__Secure-1PSIDCC=ACA-OxPV4gENo_BI2gd2pGzrrypYZfQm4CFRILC_LgLvWec3QrZ5XRkwZFwsOPpOGzcYs4gZmw; SameSite=none; Secure';
                             document.cookie = 'G_ENABLED_IDPS=G_ENABLED_IDPS; SameSite=none; Secure';
-                            document.cookie = 'g_state=g_state; SameSite=none; Secure';
+                            document.cookie = 'g_state={"i_l":0}; SameSite=none; Secure';
                             // The user is signed in
                             var id_token = authInstance.currentUser.get().getAuthResponse().id_token;
                             console.log(id_token)
