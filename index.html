@@ -4,7 +4,7 @@
 <head>
     <title>Tech Support-CSP Website</title>
     <meta name="referrer" content="no-referrer-when-downgrade">
-    <meta name="Cross-Origin-Opener-Policy" content="same-origin-allow-popups">
+    <meta name="Cross-Origin-Opener-Policy" content="unsafe-none">
     <script src="client.js" async></script>
     <script src="jquery.min.js"></script>
     <script type='text/javascript' src='platform.js' async defer></script>
@@ -60,6 +60,7 @@ signoutbutton.style.display = 'none'
                             let image = new String(idarray.picture);
                             document.getElementById('googleimage').src = image
                             document.getElementById('sign_in').style.visibility = 'hidden'
+                            console.log(googleUser)
                         }
                 </script>
             </li>
