@@ -39,13 +39,14 @@ letter-spacing: 2px;
 }
 header ul
 {
- display: static; 
+ display: flex; 
  justify-content: center;
- align-items: center; 
+ align-items: center;
 }
 header ul li
 {
  list-style: none;
+ display: inline-block;
  margin-left: 20px;
 }
 header ul li a
@@ -55,8 +56,10 @@ header ul li a
   font-weight: 400;
   padding: 6px 15px;
   color: #fff; 
-  border-radius: 200px;
+  border-radius: 20px;
+  width: auto;
 }
+
 header ul li a:hover,
 header ul li a.active
 {
