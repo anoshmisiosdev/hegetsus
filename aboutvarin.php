@@ -3,7 +3,13 @@
     <title>Varin Adusumalli</title>
     <link rel="stylesheet" type="text/css" href="About.css">
 </head>
-<body style="background-image: url(RiyanAboutMe.gif);">
+<style>
+    .aboutlinks{
+    color: orangered;
+    }
+</style>
+
+<body style="background-image: url(VarinAboutMe.gif);">
     <header>
         
         <ul >
@@ -15,11 +21,11 @@
                 <div class="dropdown">
                     <span>Other Members ▼</span>
                     <div class="dropdown-content">
-                      <a href="aboutriyan.php">Riyan A.</a>
-                      <a href="aboutrehan.php">Rehan M.</a>
-                      <a href="aboutamaan.php">Amaan M.</a>
-                      <a href="aboutjason.php">Jason L.</a>
-                      <a href="aboutrishaan.php">Rishaan J.</a>
+                      <a class="aboutlinks" href="aboutriyan.php">Riyan A.</a>
+                      <a class="aboutlinks" href="aboutrehan.php">Rehan M.</a>
+                      <a class="aboutlinks" href="aboutamaan.php">Amaan M.</a>
+                      <a class="aboutlinks" href="aboutjason.php">Jason L.</a>
+                      <a class="aboutlinks" href="aboutrishaan.php">Rishaan J.</a>
                     </div>
                   </div>
             </li>
@@ -54,7 +60,7 @@
                     echo '<div class="aboutmeIMAGE">
                             <img src="VARIN.png"  height="400" class="aboutmeIMAGEIMAGE">
                         </div>';
-                    echo '<p class ="aboutmeBIO">'.$row["mBIO"].'</p>';    
+                    echo '<p class ="aboutmeBIO" style="border-color:orangered;">'.$row["mBIO"].'</p>';    
                 }
             }
             

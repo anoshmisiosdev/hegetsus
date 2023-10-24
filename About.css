@@ -39,9 +39,9 @@ letter-spacing: 2px;
 }
 header ul
 {
- display: inline; 
+ display: flex; 
  justify-content: center;
- align-items: center; 
+ align-items: center;
 }
 header ul li
 {

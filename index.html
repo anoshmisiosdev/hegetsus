@@ -1,14 +1,15 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
 
 <head>
-    <script src="https://accounts.google.com/gsi/client" async></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-    <script type='text/javascript' src='https://apis.google.com/js/platform.js' async defer></script>
+    <title>Tech Support-CSP Website</title>
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    <meta name="Cross-Origin-Opener-Policy" content="unsafe-none">
+    <script src="client.js" async></script>
+    <script src="jquery.min.js"></script>
+    <script type='text/javascript' src='platform.js' async defer></script>
     <meta name="google-signin-client_id"
         content="125257763090-p5800112ordnelpe23i2lbkavunsv5vq.apps.googleusercontent.com">
-    <title>Tech Support-CSP Website</title>
-    <link rel="stylesheet" type="text/css" href="style.css">
     <script>
         function initGoogleAuth() {
             gapi.load('auth2', function () {
@@ -21,32 +22,29 @@
         }
 
     </script>
+    <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 
-<body onload="initGoogleAuth()">
+<body onload="initGoogleAuth()
+let signoutbutton = document.getElementById('sign_out')
+signoutbutton.style.display = 'none'
+">
     <header>
         <a href="#" class="logo">Tech Support</a>
         <ul>
             <li id="sign_in">
                 <div id="g_id_onload"
-                data-client_id="125257763090-p5800112ordnelpe23i2lbkavunsv5vq.apps.googleusercontent.com"
-                data-context="signin"
-                data-ux_mode="popup"
-                data-callback="OnSignIn"
-                data-auto_prompt="false">
-           </div>
-           
-           <div class="g_id_signin" data-type="standard" data-shape="pill" data-theme="filled_blue"
-                data-text="signin_with" data-size="large" data-logo_alignment="left">
-           </div>
+                    data-client_id="125257763090-p5800112ordnelpe23i2lbkavunsv5vq.apps.googleusercontent.com"
+                    data-context="signin" data-ux_mode="popup" data-callback="OnSignIn" data-auto_prompt="false">
+                </div>
+
+                <div class="g_id_signin" data-type="standard" data-shape="pill" data-theme="filled_blue"
+                    data-text="signin_with" data-size="large" data-logo_alignment="left"
+                </div>
                 <script>
                     function OnSignIn(googleUser) {
-                        var authInstance = gapi.auth2.getAuthInstance();
-                        if (authInstance.isSignedIn.get()) {
                             document.getElementById('g_id_onload').style.visibility = 'hidden'
-                            // The user is signed in
-                            var id_token = authInstance.currentUser.get().getAuthResponse().id_token;
-                            console.log(id_token)
+                            console.log(googleUser)
                             function parseJwt(token) {
                                 var base64Url = token.split('.')[1];
                                 var base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
@@ -56,17 +54,20 @@
 
                                 return JSON.parse(jsonPayload);
                             }
-                            console.log(parseJwt(id_token));
-                            var gIdSignInElements = document.getElementsByClassName('g_id_signin');
-                            for (var i = 0; i < gIdSignInElements.length; i++) {
-                                gIdSignInElements[i].style.visibility = 'collapse';
-                            }
+                            let idarray = parseJwt(googleUser.credential)
                             let siginbutton = document.getElementById('sign_out')
-                            siginbutton.style.display = 'none'
-}
-                    }
+                            siginbutton.style.display = 'list-item'
+                            let image = new String(idarray.picture);
+                            document.getElementById('googleimage').src = image
+                            document.getElementById('sign_in').style.visibility = 'hidden'
+                            console.log(googleUser)
+                        }
                 </script>
             </li>
+            <li><img id="googleimage" style="border-radius: 50%; " /></li>
+            <li><a href="index.html" class="active">Home</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="Contact.html">Contacts</a></li>
             <li id="sign_out">
                 <a href="#" onclick="signOut();">Leave</a>
                 <script>
@@ -79,21 +80,20 @@
                             }
                             let signinbutton = document.getElementById('sign_out')
                             signinbutton.style.display = 'none'
+                            document.getElementById('googleimage').src = 'nothing'
+                            document.getElementById('sign_in').style.visibility = 'visible'
                         });
                     }
 
                 </script>
             </li>
-            <li><a href="index.html" class="active">Home</a></li>
-            <li><a href="projects.html">Projects</a></li>
-            <li><a href="Contact.html">Contacts</a></li>
         </ul>
     </header>
     <section>
         <img src="stars.png" id="boom">
         <img src="moon.png" id="moon">
 
-        <a href="#sec" id="btn">About Us</a>
+
         <img src="building.png" id="building">
         <img src="burjkhalifa.png" id="robots">
     </section>
@@ -135,10 +135,8 @@
 
                         <div class="card-content">
                             <h2 class="name">Riyan Anosh</h2>
-                            <p class="description">Riyan is the Webmaster and team lead. He is profecient in HTML,
-                                Python, and knows how to host a website. He enjoys playing old-school video games and
-                                hanging out with his brother, Rehan Anosh.</p>
-                            <a href="aboutriyan.php" class="button">View More</a>
+                            <p class="description">Riyan is the Webmaster and Team Lead.</p>
+                            <a href="aboutriyan.php" class="button">Learn More About Riyan!</a>
                         </div>
                     </div>
                     <div class="card swiper-slide">
@@ -152,11 +150,8 @@
 
                         <div class="card-content">
                             <h2 class="name">Rehan Mohhamad</h2>
-                            <p class="description">Rehan is the tech support and facilitater. He knows HTML and some
-                                Python. He enjoys reading classics, such as The Three Musketeers. He also enjoys playing
-                                sports such as Badminton and Basketball. He is the gigachad brother of Amaan, and
-                                carries this entire team on his back.</p>
-                            <button class="button">View More</button>
+                            <p class="description">Rehan is the tech support and facilitater.</p>
+                            <a href="aboutrehan.php" class="button">Learn More About Rehan!</a>
                         </div>
                     </div>
                     <div class="card swiper-slide">
@@ -170,11 +165,8 @@
 
                         <div class="card-content">
                             <h2 class="name">Amaan Mohhamad</h2>
-                            <p class="description">Amaan is the Brother of the giga chad Rehan Mohammad and is the
-                                Back-End Developer along with being the Coordinator. He is skilled in Python HTML, Java,
-                                and Javascript. He enjoys gaming, reading literary classics, and his favorite color is
-                                blue.</p>
-                            <button class="button">View More</button>
+                            <p class="description">Amaan is the Back-End Developer along with being the Coordinator.</p>
+                            <a href="aboutamaan.php" class="button">Learn More About Amaan!</a>
                         </div>
                     </div>
                     <div class="card swiper-slide">
@@ -188,11 +180,8 @@
 
                         <div class="card-content">
                             <h2 class="name">Rishaan Joshi</h2>
-                            <p class="description">Rishaan is one of the Content Specialists and the Entertainer. He has
-                                a bad sense of humor, is rather creative, has generally good ideas, and is a movie
-                                addict. He also believes Riyan is missing a chromosome and thinks he looks better bald.
-                                He also created our team logo.</p>
-                            <button class="button">View More</button>
+                            <p class="description">Rishaan is one of the Content Specialists and the Entertainer.</p>
+                            <a href="aboutrishaan.php" class="button">View More</a>
                         </div>
                     </div>
                     <div class="card swiper-slide">
@@ -206,10 +195,8 @@
 
                         <div class="card-content">
                             <h2 class="name">Jason Lai</h2>
-                            <p class="description">Jason is one of the Content Specialists and the Event Planner. He is
-                                experienced in Python, HTML, Lua, and knows a little bit of Java/C/C++. He enjoys
-                                swimming, badminton, and loves the Balkans despite being Chinese. He can't read.</p>
-                            <button class="button">View More</button>
+                            <p class="description">Jason is one of the Content Specialists and the Event Planner.</p>
+                            <a href="aboutjason.php" class="button">View More</a>
                         </div>
                     </div>
                     <div class="card swiper-slide">
@@ -217,16 +204,14 @@
                             <span class="overlay"></span>
 
                             <div class="card-image">
-                                <img src="VARIN.png" alt="" class="card-img">
+                                <img src="varin2.png" alt="" class="card-img">
                             </div>
                         </div>
 
                         <div class="card-content">
                             <h2 class="name">Varin Adusumalli</h2>
-                            <p class="description">Varin is the current Front-End Developer and Decorator. He is skilled
-                                in C, Python, HTML, and other languages. He enjoys the movie Intersteller, knows Muay
-                                Thai and boxing, loves football.</p>
-                            <button class="button">View More</button>
+                            <p class="description">Varin is the current Front-End Developer and Decorator.</p>
+                            <a href="aboutvarin.php" class="button">View More</a>
                         </div>
                     </div>
                 </div>
