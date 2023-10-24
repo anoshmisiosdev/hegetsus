@@ -6,9 +6,20 @@
 <style>
     .aboutlinks{
     color: cyan;
+    font-size: 22px;
+
+    }
+    input{
+        color: black;
+    }
+    form{
+        color: white;
+    }
+    .radio{
+        color:white
     }
 </style>
-<body>
+<body style="background:black;">
     <header>
         
         <ul >
@@ -32,14 +43,34 @@
         </ul>
     </header>   
     <p><br></br></p>
+    <form action="" method="post">
+        <label>CHOOSE PERSON</label><br>
+        <input class="radio" type="radio" name="name" value="Riyan Anosh" id="riyan">RIYAN<br>
+        <input class="radio" type="radio" name="name" value="Varin Adusumalli" id="varin">VARIN<br>
+        <input class="radio" type="radio" name="name" value="Rishaan Joshi" id="rishaan">RISHAAN<br>
+        <input class="radio" type="radio" name="name" value="Amaan Mohammad" id="amaan">AMAAN<br>
+        <input class="radio" type="radio" name="name" value="Rehan Mohammad" id="rehan">REHAN<br>
+        <input class="radio" type="radio" name="name" value="Jason Lai" id="jason">JASON<br>
+        NEW BIO: <input type="text" name="bio" formmethod="post"><br>
+        <input type="submit" name="button" formmethod="oist">
+    </form>
+
+
 
     <?php
             #Connection Values
             $servername = "localhost";
             $username = "root";
             $password = '123456';
+            $selectedname = '';
+            $newBIO = '';
             #$password = ""; # Mr Millard's password is an empty string.
-
+            if(isset($_POST['button'])){ //check if form was submitted
+                $selectedname = $_POST['name']; //get input text
+                $plat = $_POST['bio']; //get input text
+                $plat = "Your gender is ".$selectedname." and your salary is ".$plat;
+                echo['<h2>'.$plat.'</h2>'];
+            }    
             // Create connection to MySQL
             $conn = new mysqli($servername, $username, $password);
 
@@ -54,3 +85,30 @@
             $newquery = 'select mNAMES,mBIO from members where mID = 1';
             
             $newresult = $conn->query($newquery);
+            if($newresult->num_rows>0){
+                while($row = $newresult->fetch_assoc()){
+                        
+                }
+            }
+            
+            
+        
+            $conn->close();
+        ?>
+        
+        
+
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" contact="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>About Us-CSP Website</title>
+
+       </head>
+    
+</body>
+</html>
+
+    
+    
