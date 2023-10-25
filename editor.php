@@ -55,46 +55,24 @@
         <input type="submit" name="button" formmethod="oist">
     </form>
 
+    <form action="EDITORPROCESSING.PHP"method="post">
+        <label>CHOOSE PERSON</label>
+        <select id="person" name="person">
+            <option value="None">None</option>
+            <option value="Riyan Anosh">Riyan Anosh</option>
+            <option value="Varin Adusumalli">Varin Adusumalli</option>
+            <option value="Rishaan Joshi">Rishaan Joshi</option>
+            <option value="Amaan Mohammad">Amaan Mohammad</option>
+            <option value="Rehan Mohammad">Rehan Mohammad</option>
+            <option value="Jason Lai">Jason Lai</option>
+        </select>
+        <br></br>
+        <label>INPUT NEW BIO</label>
+        <input type="text" name="bio" placeholder="Input new bio...">
+        <br></br>
+        <button type="submit"name="submit">submit</button>
 
-
-    <?php
-            #Connection Values
-            $servername = "localhost";
-            $username = "root";
-            $password = '123456';
-            $selectedname = '';
-            $newBIO = '';
-            #$password = ""; # Mr Millard's password is an empty string.
-            if(isset($_POST['button'])){ //check if form was submitted
-                $selectedname = $_POST['name']; //get input text
-                $plat = $_POST['bio']; //get input text
-                $plat = "Your gender is ".$selectedname." and your salary is ".$plat;
-                echo['<h2>'.$plat.'</h2>'];
-            }    
-            // Create connection to MySQL
-            $conn = new mysqli($servername, $username, $password);
-
-            // Test connection
-            if ($conn->connect_error) {
-                die("Connection failed: " . $conn->connect_error);
-            }
-            
-            # Draw data from database using the query() method
-            $conn->query("use teamtechsupport;"); #First select the active database
-            
-            $newquery = 'select mNAMES,mBIO from members where mID = 1';
-            
-            $newresult = $conn->query($newquery);
-            if($newresult->num_rows>0){
-                while($row = $newresult->fetch_assoc()){
-                        
-                }
-            }
-            
-            
-        
-            $conn->close();
-        ?>
+    </form>
         
         
 
