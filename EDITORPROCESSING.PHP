@@ -24,17 +24,40 @@
                 echo"THIS IS WHAT YOU SUBMIT";
                 echo"<br></br>";
                 echo $name;
+                echo gettype($name);
+                
                 echo"<br></br>";
                 echo $newbio;
+                $string='"'.$name.'"';
+                echo "SELECT mBIO FROM members WHERE mNAMES=".$string;
+                $newquery="SELECT mID FROM members WHERE mNAMES=".$string;
+                $string="SELECT mBIO FROM members WHERE mNAMES=".$string;
+                
                 $conn->query("use teamtechsupport;");
-                $newresult =$conn->query("SELECT mBIO FROM members WHERE mNAMES='Varin Adusumalli';");
+                
+                $newresult=$conn->query($string);
                 if($newresult->num_rows>0){
                     while($row = $newresult->fetch_assoc()){
-                        echo '<h2>'.$row["mNAMES"].'</h2>';
+                        echo '<h2>'.$row["mBIO"].'</h2>';
                             
                     }
                 }
-                # header("Location: editor.php");
+                $newresult=$conn->query($newquery);
+                if($newresult->num_rows>0){
+                    while($row = $newresult->fetch_assoc()){
+                        $mID = $row["mID"];
+                        echo $mID;  
+                    }
+                }
+                $newquery="UPDATE members
+                                SET
+                                    mBIO=".$newbio."
+                                WHERE 
+                                    mID=".$mID."";
+                echo $newquery;
+                $conn->query($newquery);
+                
+                header("Location: editor.php");
             }
             else {
                 # header("Location: index.html");
