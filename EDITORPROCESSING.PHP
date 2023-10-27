@@ -51,16 +51,18 @@
                 }
                 $newquery="UPDATE members
                                 SET
-                                    mBIO=".$newbio."
+                                    mBIO='".$newbio."'
                                 WHERE 
                                     mID=".$mID."";
+                
+                echo "<br></br>";
                 echo $newquery;
                 $conn->query($newquery);
                 
                 header("Location: editor.php");
             }
             else {
-                # header("Location: index.html");
+                header("Location: index.html");
             }
 
             # Draw data from database using the query() method

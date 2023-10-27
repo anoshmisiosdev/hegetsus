@@ -6,8 +6,13 @@
     <meta name="referrer" content="no-referrer-when-downgrade">
     <meta name="Cross-Origin-Opener-Policy" content="unsafe-none">
     <script src="client.js" async></script>
+    <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" contact="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>About Us-CSP Website</title>
+
     <script src="jquery.min.js"></script>
-    <script type='text/javascript' src='platform.js' async defer></script>
+    <!--<script type='text/javascript' src='platform.js' async defer></script>
     <meta name="google-signin-client_id"
         content="125257763090-p5800112ordnelpe23i2lbkavunsv5vq.apps.googleusercontent.com">
     <script>
@@ -22,16 +27,26 @@
         }
 
     </script>
+-->
     <link rel="stylesheet" type="text/css" href="style.css">
 </head>
+<style>
+    .aboutlinks{
+    color: purple;
+    }
+</style>
 
+
+<!--
 <body onload="initGoogleAuth()
 let signoutbutton = document.getElementById('sign_out')
 signoutbutton.style.display = 'none'
 ">
+-->
     <header>
         <a href="#" class="logo">Tech Support</a>
         <ul>
+           <!--
             <li id="sign_in">
                 <div id="g_id_onload"
                     data-client_id="125257763090-p5800112ordnelpe23i2lbkavunsv5vq.apps.googleusercontent.com"
@@ -66,10 +81,23 @@ signoutbutton.style.display = 'none'
                 </script>
             </li>
             <li><img id="googleimage" style="border-radius: 50%; " /></li>
+        -->
             <li><a href="index.html" class="active">Home</a></li>
             <li><a href="projects.html">Projects</a></li>
+            <li>
+                <div class="dropdown">
+                    <span>Other Members ▼</span>
+                    <div class="dropdown-content">
+                      <a class="aboutlinks" href="aboutriyan.php">Riyan A.</a>
+                      <a class="aboutlinks" href="aboutrehan.php">Rehan M.</a>
+                      <a class="aboutlinks" href="aboutamaan.php">Amaan M.</a>
+                      <a class="aboutlinks" href="aboutjason.php">Jason L.</a>
+                      <a class="aboutlinks" href="aboutrishaan.php">Rishaan J.</a>
+                    </div>
+                  </div>
+            </li>
             <li><a href="Contact.html">Contacts</a></li>
-            <li id="sign_out">
+            <!--<li id="sign_out">
                 <a href="#" onclick="signOut();">Leave</a>
                 <script>
                     function signOut() {
@@ -87,6 +115,7 @@ signoutbutton.style.display = 'none'
                     }
 
                 </script>
+            -->
             </li>
         </ul>
     </header>
