@@ -22,14 +22,11 @@
         
         font-size: 30px;
     }
+    .dropdown-content{
+        background-color: black;
+    }
 </style>
 <?php 
-    if($_SERVER[REQUEST_METHOD]=="POST"){
-        
-    }
-    else{
-        header("index.html");
-    }
 
 ?>
 <body style="background-image: url(matrix.gif);;">
@@ -41,17 +38,16 @@
             
             <li><a href="Contact.html">Contacts</a></li>
             <li>
-                <div class="dropdown" style="background-color= black;">
-                    <span class="hola">Members ▼</span>
-                    <div class="dropdown-content" >
-                      <a class="aboutlinks" href="aboutriyan.php" >Riyan A.</a><br></br>
-                      <a class="aboutlinks" href="aboutrehan.php">Rehan M.</a><br></br>
-                      <a class="aboutlinks" href="aboutamaan.php">Amaan M.</a><br></br>
-                      <a class="aboutlinks" href="aboutvarin.php">Varin A.</a><br></br>
-                      <a class="aboutlinks" href="aboutjason.php">Jason L.</a><break></break>
-                      <a class="aboutlinks" href="aboutrishaan.php">Rishaan J.</a><break></break>
+                <div class="dropdown">
+                    <span>Other Members ▼</span>
+                    <div class="dropdown-content">
+                      <a class="aboutlinks" href="aboutriyan.php">Riyan A.</a>
+                      <a class="aboutlinks" href="aboutrehan.php">Rehan M.</a>
+                      <a class="aboutlinks" href="aboutamaan.php">Amaan M.</a>
+                      <a class="aboutlinks" href="aboutjason.php">Jason L.</a>
+                      <a class="aboutlinks" href="aboutrishaan.php">Rishaan J.</a>
                     </div>
-                </div>
+                  </div>
             </li>
         </ul>
     </header>   
@@ -69,10 +65,10 @@
             <option value="Rehan Mohammad">Rehan Mohammad</option>
             <option value="Jason Lai">Jason Lai</option>
         </select>
-        <br></br>
+        <br>
         <label>INPUT NEW BIO</label>
         <input type="text" name="bio" placeholder="Input new bio...">
-        <br></br>
+        <br>
         <button type="submit"name="submit">submit</button>
 
     </form>
