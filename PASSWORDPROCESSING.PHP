@@ -37,6 +37,21 @@
                 $realpassword=strval($realpassword);
                 $password=strval($password);
                 echo $realpassword;
+                $password=trim($password);
+                $realpassword=trim($realpassword);
+                $realpassword=rtrim($realpassword);
+                $realpassword = str_replace(' ', '', $realpassword);
+                $realpassword = preg_replace('/\s+/', '', $realpassword);
+                $a="1";
+                $b=1;
+                echo"<br>";
+                var_dump($password);
+                echo"<br>";
+                var_dump($realpassword);
+                echo"<br>";
+                if ($a==$b){
+                    echo "THIS WORKS";
+                }
                 if ($realpassword==$password) {
                     echo 'yay';
                 }   
