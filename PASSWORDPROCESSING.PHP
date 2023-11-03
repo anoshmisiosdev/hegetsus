@@ -1,12 +1,15 @@
 <?php
-            
+            session_start();
             
             #Connection Values
             $servername = "localhost";
             $username = "root";
             $password = '123456';
             $selectedname = '';
-         
+            global $editor;
+            
+    
+            
             #$password = ""; # Mr Millard's password is an empty string.
             
             $conn = new mysqli($servername, $username, $password);
@@ -49,24 +52,44 @@
                 echo"<br>";
                 var_dump($realpassword);
                 echo"<br>";
-                if ($a==$b){
-                    echo "THIS WORKS";
+                
+                
+                
+                $monkepassword="monkepassword";
+                if ($monkepassword ==$password) {
+                    echo "SUPERYAY";
+                    session_start();
+                    $editor="yes";
+                    echo $editor;
+                    
+                    session_start();
+                    $_SESSION["editor"]="yes";
+
+
+                    
                 }
-                if ($realpassword==$password) {
-                    echo 'yay';
-                }   
                 else {
-                    echo 'nay';
-                    echo'<br>';
-                    echo $realpassword;
-                    echo '<br>';
-                    echo $password;
+                    $_SESSION["editor"]="no";
                 }
-                #header("Location: passwordprocessing.php");
+                if($editor=="yes"){
+                    header("Location: editor.php");
+
+                    
+                }
+                else {
+                    header("Location: password.php");
+                }
+                
             }
             else {
                 #header("Location: index.html");
+                $_SESSION["editor"]="no";
+                
                 echo "hello";
+                $_SESSION["editor"]="no";
+                echo "<br><a href='index.html'>You shouldn't be here</a>";
+                #header("Location: password.php");
+                
             }
 
             # Draw data from database using the query() method
