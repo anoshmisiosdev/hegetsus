@@ -1,3 +1,6 @@
+<?php 
+session_start();
+?>
 <!DOCTYPE html>
 <head>
     <title>CONFIDENTIAL</title>
@@ -37,7 +40,7 @@
     <p><br></br></p>
     <h2>FOR TEAM MEMBERS ONLY</h2>
     <form action="PASSWORDPROCESSING.PHP"method="post">
-        PASSWORD: <input name="bio" placeholder="Enter the password"></input> <br>
+        PASSWORD: <input name="bio" placeholder="Enter the password" type="password"></input> <br>
         <button type="submit">SUBMIT</button>
     </form>
  

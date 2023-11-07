@@ -1,3 +1,17 @@
+<?php
+session_start();
+#print_r($_SESSION);
+#echo $_SESSION["EDITORACCESS"];
+if ($_SESSION["editor"]=="yes"){
+    echo"YOYOYOYOYO";
+
+}
+else{
+    header("index.html");
+}
+$_SESSION["editor"]="no";
+?>
+
 <!DOCTYPE html>
 <head>
     <title>EDITING</title>
@@ -27,7 +41,8 @@
     }
 </style>
 <?php 
-
+    include("PASSWORDPROCESSING.PHP");
+    echo $editor;
 ?>
 <body style="background-image: url(matrix.gif);;">
     <header>
