@@ -39,7 +39,7 @@ session_start();
     </header>   
     <p><br></br></p>
     <h2>FOR TEAM MEMBERS ONLY</h2>
-    <form action="PASSWORDPROCESSING.PHP"method="post">
+    <form action="editor.PHP"method="get">
         PASSWORD: <input name="bio" placeholder="Enter the password" type="password"></input> <br>
         <button type="submit">SUBMIT</button>
     </form>
