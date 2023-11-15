@@ -1,87 +1,27 @@
 <?php
-
-#print_r($_SESSION);
-#echo $_SESSION["EDITORACCESS"];
-if ($_SERVER["REQUEST_METHOD"]=="GET") {
-    $apassword = htmlspecialchars($_POST["bio"]);
-    
-    #echo"THIS IS WHAT YOU SUBMIT";
-    #echo"<br></br>";
-    
-    #Connection Values
-    $servername = "localhost";
-    $username = "root";
-    $password = '123456';
-    $selectedname = '';
-    global $editor;
-    
-
-    
-    #$password = ""; # Mr Millard's password is an empty string.
-    
-    $conn = new mysqli($servername, $username, $password);
-
-    // Test connection
-    if ($conn->connect_error) {
-        die("Connection failed: " . $conn->connect_error);
-    }
-    
-    $conn->query("use teamtechsupport;");
-    $newquery="SELECT password FROM teamtable";
-    $newresult= $conn->query($newquery);
-    if($newresult->num_rows>0){
-        while($row = $newresult->fetch_assoc()){
-            $realpassword = $row["password"].'</h2>';
-                
-        }
-    }
-    $realpassword=strval($realpassword);
-    $apassword=strval($apassword);
-    echo $realpassword;
-    $apassword=trim($apassword);
-    $realpassword=trim($realpassword);
-    $realpassword=rtrim($realpassword);
-    $realpassword = str_replace(' ', '', $realpassword);
-    $realpassword = preg_replace('/\s+/', '', $realpassword);
-    $a="1";
-    $b=1;
-    #echo"<br>";
-    #var_dump($apassword);
-    #echo"<br>";
-    #var_dump($realpassword);
-    #echo"<br>";
-    
-    
-    
-    $monkepassword="monkepassword";
-    if ($monkepassword ==$apassword) {
-        #echo "SUPERYAY";
-        session_start();
-        $editor="yes";
-        echo $editor;
-        
-        session_start();
-        $_SESSION["editor"]="yes";
-        #echo "THE PASSWORD WORKS";
-
-        
-    }
-    else {
-        #$_SESSION["editor"]="no";
-    }
-    
-    
+$servername = "localhost";
+$username = "root";
+$password = '123456';
+$conn = new mysqli($servername, $username, $password);
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
 }
-else {
-    
-    $_SESSION["editor"]="no";
-    
-    #echo "The password does not work";
-    $_SESSION["editor"]="no";
-    #echo "<br><a href='index.html'>You shouldn't be here</a>";
-    #header("Location: password.php");
-    #echo $_SERVER["REQUEST_METHOD"];
+$pass= htmlspecialchars($_POST["pass"]);
+#echo $pass;
+#echo"<br>";
+if ($pass!="hello"){
+    header("Location: password.php");
+
 }
+
+else{
+    
+    #echo$_SERVER['REQUEST_METHOD'];
+
+    #echo"hello to you too";
+}
+
+
 
 ?>
 
@@ -171,6 +111,3 @@ else {
     
 </body>
 </html>
-
-    
-    

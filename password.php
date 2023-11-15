@@ -39,8 +39,8 @@ session_start();
     </header>   
     <p><br></br></p>
     <h2>FOR TEAM MEMBERS ONLY</h2>
-    <form action="editor.PHP"method="get">
-        PASSWORD: <input name="bio" placeholder="Enter the password" type="password" id="bio"></input> <br>
+    <form action="passwordnew.PHP"method="post">
+        PASSWORD: <input name="pass" placeholder="Enter the password" type="password" id="bio"></input> <br>
         <button type="submit">SUBMIT</button>
     </form>
  
