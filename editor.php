@@ -5,8 +5,8 @@
 if ($_SERVER["REQUEST_METHOD"]=="GET") {
     $apassword = htmlspecialchars($_POST["bio"]);
     
-    echo"THIS IS WHAT YOU SUBMIT";
-    echo"<br></br>";
+    #echo"THIS IS WHAT YOU SUBMIT";
+    #echo"<br></br>";
     
     #Connection Values
     $servername = "localhost";
@@ -45,29 +45,29 @@ if ($_SERVER["REQUEST_METHOD"]=="GET") {
     $realpassword = preg_replace('/\s+/', '', $realpassword);
     $a="1";
     $b=1;
-    echo"<br>";
-    var_dump($apassword);
-    echo"<br>";
-    var_dump($realpassword);
-    echo"<br>";
+    #echo"<br>";
+    #var_dump($apassword);
+    #echo"<br>";
+    #var_dump($realpassword);
+    #echo"<br>";
     
     
     
     $monkepassword="monkepassword";
     if ($monkepassword ==$apassword) {
-        echo "SUPERYAY";
+        #echo "SUPERYAY";
         session_start();
         $editor="yes";
         echo $editor;
         
         session_start();
         $_SESSION["editor"]="yes";
-        echo "THE PASSWORD WORKS";
+        #echo "THE PASSWORD WORKS";
 
         
     }
     else {
-        $_SESSION["editor"]="no";
+        #$_SESSION["editor"]="no";
     }
     
     
@@ -76,11 +76,11 @@ else {
     
     $_SESSION["editor"]="no";
     
-    echo "The password does not work";
+    #echo "The password does not work";
     $_SESSION["editor"]="no";
-    echo "<br><a href='index.html'>You shouldn't be here</a>";
+    #echo "<br><a href='index.html'>You shouldn't be here</a>";
     #header("Location: password.php");
-    echo $_SERVER["REQUEST_METHOD"];
+    #echo $_SERVER["REQUEST_METHOD"];
 }
 
 ?>
