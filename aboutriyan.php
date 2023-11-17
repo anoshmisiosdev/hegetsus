@@ -14,7 +14,7 @@
         <ul >
             <li><a href="index.html">Home</a></li>
             <li><a href="projects.html">Projects</a></li>
-            <li><a href="#">Login/Sign In</a></li>
+            <li><a href="password.php">Login/Sign In</a></li>
             <li><a href="Contact.html">Contacts</a></li>
             <li>
                 <div class="dropdown">

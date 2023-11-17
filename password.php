@@ -31,6 +31,7 @@ session_start();
                       <a class="aboutlinks" href="aboutrehan.php">Rehan M.</a>
                       <a class="aboutlinks" href="aboutamaan.php">Amaan M.</a>
                       <a class="aboutlinks" href="aboutjason.php">Jason L.</a>
+                      <a class="aboutlinks" href="aboutvarin.php">Varin A</a>
                       <a class="aboutlinks" href="aboutrishaan.php">Rishaan J.</a>
                     </div>
                   </div>
