@@ -8,11 +8,11 @@
     color: greenyellow;
     }
 </style>
-
-<body style="background-image: url(AmaanAboutMe.gif);">
+<!-- style="background-image: url(AmaanAboutMe.gif);"-->
+<body style="background-color:white">
     <header>
         
-        <ul >
+        <ul style="background-color:slategray">
             <li><a href="index.html">Home</a></li>
             <li><a href="projects.html">Projects</a></li>
             <li><a href="password.php">Login/Sign In</a></li>
@@ -30,9 +30,10 @@
                   </div>
             </li>
         </ul>
-    </header>   
+    </header>  
+     
     <p><br></br></p>
-
+    <h1 style="color:Dodgerblue">OUR PROJECTS</h1>
     <?php
             #Connection Values
             $servername = "localhost";
