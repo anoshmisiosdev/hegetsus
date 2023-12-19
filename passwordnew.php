@@ -64,7 +64,7 @@ else{
             <li><a href="Contact.html">Contacts</a></li>
             <li>
                 <div class="dropdown">
-                    <span>Member Pages ▼</span>
+                    <span>Member Pages &#9660;</span>
                     <div class="dropdown-content">
                       <a class="aboutlinks" href="aboutriyan.php">Riyan A.</a>
                       <a class="aboutlinks" href="aboutrehan.php">Rehan M.</a>

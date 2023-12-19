@@ -19,7 +19,7 @@
             <li><a href="Contact.html">Contacts</a></li>
             <li>
                 <div class="dropdown">
-                    <span>Other Members ▼</span>
+                    <span>Other Members &#9660;</span>
                     <div class="dropdown-content">
                       <a class="aboutlinks" href="aboutriyan.php">Riyan A.</a>
                       <a class="aboutlinks" href="aboutamaan.php">Amaan M.</a>
@@ -68,12 +68,7 @@
                     echo "<br>";
                     echo "<br>";
                     
-                    echo '<p class ="aboutmeBIO"style="border-color:orange;">
-                    As Tech Support, Rehan researched and found solutions to all the bugs
-                    we encountered, whether they were in Unity, html, or PHP. He also took charge of 
-                    developing the PvP game and learned Unity from scratch to ensure a high-quality product. He also 
-                    made sure that the AR glasses were being developed in parallel with the game.
-                    </p>';
+                    
 
                 }
             }
@@ -82,7 +77,12 @@
         
             $conn->close();
         ?>
-        
+        <p class ="aboutmeBIO"style="border-color:orange;">
+                    As Tech Support, Rehan researched and found solutions to all the bugs
+                    we encountered, whether they were in Unity, html, or PHP. He also took charge of 
+                    developing the PvP game and learned Unity from scratch to ensure a high-quality product. He also 
+                    made sure that the AR glasses were being developed in parallel with the game.
+                    </p>
         
 
 <html lang="en">

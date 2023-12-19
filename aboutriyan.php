@@ -18,7 +18,7 @@
             <li><a href="Contact.html">Contacts</a></li>
             <li>
                 <div class="dropdown">
-                    <span>Other Members ▼</span>
+                    <span>Other Members &#9660;</span>
                     <div class="dropdown-content">
                       <a class="aboutlinks" href="aboutrehan.php">Rehan M.</a>
                       <a class="aboutlinks" href="aboutamaan.php">Amaan M.</a>
@@ -67,12 +67,7 @@
                     echo "<br>";
                     
                     
-                    echo '<p class ="aboutmeBIO"style="border-color:green;">
-                    As the Webmaster, Riyan managed our team GitHub and also helped weed and
-                    manage old, outdated files. He also helped Rehan with some of the backend
-                    on the PvP game. He also was responsible for programming the OLED display in 
-                    the AR glasses project, as well as acquiring and managing the elctronics needed.
-                    </p>';
+                    
 
                 }
             }
@@ -81,7 +76,12 @@
         
             $conn->close();
         ?>
-        
+        <p class ="aboutmeBIO"style="border-color:green;">
+                    As the Webmaster, Riyan managed our team GitHub and also helped weed and
+                    manage old, outdated files. He also helped Rehan with some of the backend
+                    on the PvP game. He also was responsible for programming the OLED display in 
+                    the AR glasses project, as well as acquiring and managing the elctronics needed.
+                    </p>
         
 
 <html lang="en">

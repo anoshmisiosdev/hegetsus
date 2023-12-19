@@ -19,7 +19,7 @@
             <li><a href="Contact.html">Contacts</a></li>
             <li>
                 <div class="dropdown">
-                    <span>Other Members ▼</span>
+                    <span>Other Members &#9660;</span>
                     <div class="dropdown-content">
                       <a class="aboutlinks" href="aboutriyan.php">Riyan A.</a>
                       <a class="aboutlinks" href="aboutrehan.php">Rehan M.</a>
@@ -68,14 +68,7 @@
                     echo "<br>";
                     
                     
-                    echo '<p class ="aboutmeBIO"style="border-color:cyan;">
-                    As a Content Specialist, Rishaan created logos for our game and website,
-                    and also aided with finding assets for the website. The AR glasses project 
-                    was first conceptualized by Rishaan, and then brought to fruition through the
-                    help of the rest of the team. He also worked on creating branding and logos for
-                    the PvP game, such as the one displayed on our website.
-                    </p>';
-
+                    
                 }
             }
             
@@ -83,6 +76,13 @@
         
             $conn->close();
         ?>
+        <p class ="aboutmeBIO"style="border-color:cyan;">
+                    As a Content Specialist, Rishaan created logos for our game and website,
+                    and also aided with finding assets for the website. The AR glasses project 
+                    was first conceptualized by Rishaan, and then brought to fruition through the
+                    help of the rest of the team. He also worked on creating branding and logos for
+                    the PvP game, such as the one displayed on our website.
+                    </p>
         
         
 
