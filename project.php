@@ -34,37 +34,7 @@
      
     <p><br></br></p>
     <h1 style="color:Dodgerblue">OUR PROJECTS</h1>
-    <?php
-            #Connection Values
-            $servername = "localhost";
-            $username = "root";
-            $password = '123456';
-            #$password = ""; # Mr Millard's password is an empty string.
-
-            // Create connection to MySQL
-            $conn = new mysqli($servername, $username, $password);
-
-            // Test connection
-            if ($conn->connect_error) {
-                die("Connection failed: " . $conn->connect_error);
-            }
-            
-            # Draw data from database using the query() method
-            $conn->query("use teamtechsupport;"); #First select the active database
-            
-            $newquery = 'select mNAMES,mBIO from members where mID = 3';
-            
-            $newresult = $conn->query($newquery);
-            if($newresult->num_rows>0){
-                while($row = $newresult->fetch_assoc()){
-                    #echo here 
-                }
-            }
-            
-            
-        
-            $conn->close();
-        ?>
+    
         
         
 
