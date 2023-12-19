@@ -60,7 +60,24 @@
                     echo '<div class="aboutmeIMAGE">
                             <img src="Amaan2.jpg"  height="400" class="aboutmeIMAGEIMAGE">
                         </div>';
-                    echo '<p class ="aboutmeBIO"style="border-color:greenyellow;">'.$row["mBIO"].'</p>';    
+                    echo '<p class ="aboutmeBIO"style="border-color:greenyellow;">'.$row["mBIO"].'</p>';
+                    echo "<br>";
+                    echo "<br>";
+                    echo "<br>";
+                    echo "<br>";
+                    echo "<br>";
+                    
+                    echo '<p class ="aboutmeBIO"style="border-color:greenyellow;">
+                    As the Backend Developer, Amaan implemented an SQL database that allowed
+                    the website to generate member pages dynamically based on the stored data. He
+                    also utilized PHP to create an in-website editor that is password-protected and
+                    reroutes bypass attempts. He also helped playtest the game and aided in designing
+                    the control logic for it.
+                    </p>';
+
+                    
+                
+                
                 }
             }
             

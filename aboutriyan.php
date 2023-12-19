@@ -60,6 +60,20 @@
                             <img src="RIYAN2.jpg"  height="400" class="aboutmeIMAGEIMAGE">
                         </div>';
                     echo '<p class ="aboutmeBIO" style="border-color:green;">'.$row["mBIO"].'</p>';    
+                    echo "<br>";
+                    echo "<br>";
+                    echo "<br>";
+                    echo "<br>";
+                    echo "<br>";
+                    
+                    
+                    echo '<p class ="aboutmeBIO"style="border-color:green;">
+                    As the Webmaster, Riyan managed our team GitHub and also helped weed and
+                    manage old, outdated files. He also helped Rehan with some of the backend
+                    on the PvP game. He also was responsible for programming the OLED display in 
+                    the AR glasses project, as well as acquiring and managing the elctronics needed.
+                    </p>';
+
                 }
             }
             

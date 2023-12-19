@@ -61,6 +61,22 @@
                             <img src="jason3.jpeg"  height="400" class="aboutmeIMAGEIMAGE">
                         </div>';
                     echo '<p class ="aboutmeBIO" style="border-color:red;">'.$row["mBIO"].'</p>';    
+                    echo "<br>";
+                    echo "<br>";
+                    echo "<br>";
+                    echo "<br>";
+                    echo "<br>";
+                    
+                    echo '<p class ="aboutmeBIO"style="border-color:red;">
+                    As a Content Specialist, Jason helped find assets to make our website look professional 
+                    and high quality. He also created the initial layout for the website which was 
+                    crucial for a streamlined implementation process and ease of work for the Back and Front 
+                    End Developers. He also worked on creating the questions 
+                    for the PvP game, and also played a crucial role in designing the fighting game.
+                    
+
+                    </p>';
+
                 }
             }
             

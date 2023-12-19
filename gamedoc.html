@@ -13,6 +13,8 @@
 h2 {
   text-align: center;
   text-decoration:none;
+  color: darkslategray;
+  background-color: aquamarine;
 }
 p {
     text-align: center;
@@ -30,7 +32,7 @@ p {
             <li><a href="Contact.html">Contacts</a></li>
             <li>
                 <div class="dropdown">
-                    <span>Other Members ▼</span>
+                    <span>Our Members ▼</span>
                     <div class="dropdown-content">
                       <a class="aboutlinks" href="aboutriyan.php">Riyan A.</a>
                       <a class="aboutlinks" href="aboutrehan.php">Rehan M.</a>
@@ -56,6 +58,36 @@ p {
         <title>Our Projects-CSP Website</title>
 
        </head>
-    
+       <h2>Our Goal</h2>
+       <p class ="aboutmeBIO"style="border-color: cyan; color:darkslategrey">
+            We wanted to build a game on the Unity engine that incorporated
+            elements of the history of Computer Science. After brainstorming, 
+            we decided on making a 2D fighting game with 2 playable characters,
+            with each being capable of movement and 2 attacks.
+            <br>
+            However, once we quickly realized that we didn't have the time to 
+            complete such a project halfway through, we once again had to change
+            our project. Our final game is a trivia game, where two players compete 
+            to answer the most questions. We decided to make the game competetive
+            to preserve the original idea and carried over many of the original sprites
+            used.
+        </p>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        
+        <h2>Creating the Game:</h2>
+        <p class ="aboutmeBIO"style="border-color: cyan; color:darkslategrey">
+            The title screen was one the simplest parts to create, all we needed to do was use Unity UI system to create a button and scrolling background. Unity AudioSource and other audio features provided the music. The button itself uses the SceneManager and SceneIndex to switch scenes to the Fight Screen.
+            <br>
+            The main challenge in making this section of the game was in creating a variable that could be accessed by all gameObjects, which we solved by using the static type. Using a control variable and string functions to create a scoreboard, and an array to sort the questions, the two player Quiz game was created. The questions were created by ourselves. 
+
+        </p>
 </body>
 </html>
