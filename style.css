@@ -28,6 +28,11 @@ header
     align-items: center;
     z-index: 10000;
 }
+#whiter, .even-brighter {
+    filter: brightness(10);
+    -webkit-backdrop-filter: brightness();
+    backdrop-filter: brightness(1);
+}
 header .logo
 {
 color: #fff;

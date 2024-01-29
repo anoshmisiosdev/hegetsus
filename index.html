@@ -2,87 +2,34 @@
 <html>
 
 <head>
-    <title>Tech Support-CSP Website</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <title id=whiter>Tech Support-CSP Website</title>
     <meta name="referrer" content="no-referrer-when-downgrade">
     <meta name="Cross-Origin-Opener-Policy" content="unsafe-none">
     <script src="client.js" async></script>
     <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" contact="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>About Us-CSP Website</title>
-
+        <title >About Us-CSP Website</title>
     <script src="jquery.min.js"></script>
-    <!--<script type='text/javascript' src='platform.js' async defer></script>
-    <meta name="google-signin-client_id"
-        content="125257763090-p5800112ordnelpe23i2lbkavunsv5vq.apps.googleusercontent.com">
-    <script>
-        function initGoogleAuth() {
-            gapi.load('auth2', function () {
-                gapi.auth2.init({
-                    client_id: '125257763090-p5800112ordnelpe23i2lbkavunsv5vq.apps.googleusercontent.com',
-                }).then(function (auth2) {
-                    // Here, auth2 is the GoogleAuth object, and you can use it to sign in, sign out, and perform other authentication-related tasks.
-                });
-            });
-        }
-
-    </script>
--->
-    <link rel="stylesheet" type="text/css" href="style.css">
+    
 </head>
 <style>
     .aboutlinks{
     color: purple;
     font-size: 2.1vh;
     }
+    .even-brighter {
+    filter: brightness(10);
+    -webkit-backdrop-filter: brightness();
+    -webkit-backdrop-filter: brightness();
+    backdrop-filter: brightness(1)
+
+  } 
 </style>
-
-
-<!--
-<body onload="initGoogleAuth()
-let signoutbutton = document.getElementById('sign_out')
-signoutbutton.style.display = 'none'
-">
--->
     <header>
         <a href="#" class="logo">Tech Support</a>
         <ul>
-           <!--
-            <li id="sign_in">
-                <div id="g_id_onload"
-                    data-client_id="125257763090-p5800112ordnelpe23i2lbkavunsv5vq.apps.googleusercontent.com"
-                    data-context="signin" data-ux_mode="popup" data-callback="OnSignIn" data-auto_prompt="false">
-                </div>
-
-                <div class="g_id_signin" data-type="standard" data-shape="pill" data-theme="filled_blue"
-                    data-text="signin_with" data-size="large" data-logo_alignment="left"
-                </div>
-                <script>
-                    function OnSignIn(googleUser) {
-                            document.getElementById('g_id_onload').style.visibility = 'hidden'
-                            console.log(googleUser)
-                            function parseJwt(token) {
-                                var base64Url = token.split('.')[1];
-                                var base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
-                                var jsonPayload = decodeURIComponent(window.atob(base64).split('').map(function (c) {
-                                    return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
-                                }).join(''));
-
-                                return JSON.parse(jsonPayload);
-                            }
-                            let idarray = parseJwt(googleUser.credential)
-                            let siginbutton = document.getElementById('sign_out')
-                            siginbutton.style.display = 'list-item'
-                            let image = new String(idarray.picture);
-                            document.getElementById('googleimage').src = image
-                            document.getElementById('sign_in').style.visibility = 'hidden'
-                            console.log(idarray)
-                            sessionStorage.setItem('idarray')
-                        }
-                </script>
-            </li>
-            <li><img id="googleimage" style="border-radius: 50%; " /></li>
-        -->
             <li><a href="index.html" class="active">Home</a></li>
             <li><a href="projects.html">Projects</a></li>
             <li>
@@ -99,25 +46,7 @@ signoutbutton.style.display = 'none'
                   </div>
             </li>
             <li><a href="Contact.html">Contacts</a></li>
-            <!--<li id="sign_out">
-                <a href="#" onclick="signOut();">Leave</a>
-                <script>
-                    function signOut() {
-                        gapi.auth2.getAuthInstance().signOut().then(function () {
-                            var gIdSignInElements = document.getElementsByClassName('g_id_signin');
-                            console.log('User signed out.');
-                            for (var i = 0; i < gIdSignInElements.length; i++) {
-                                gIdSignInElements[i].style.visibility = 'visible';
-                            }
-                            let signinbutton = document.getElementById('sign_out')
-                            signinbutton.style.display = 'none'
-                            document.getElementById('googleimage').src = 'nothing'
-                            document.getElementById('sign_in').style.visibility = 'visible'
-                        });
-                    }
 
-                </script>
-            -->
             </li>
         </ul>
     </header>
