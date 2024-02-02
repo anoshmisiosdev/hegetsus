@@ -1,0 +1,31 @@
+{
+  "name": "n64js",
+  "version": "1.0.0",
+  "description": "An JavaScript N64 emulator.",
+  "main": "n64.min.js",
+  "type": "module",
+  "scripts": {
+    "build": "bun build ./src/n64.js --outfile=build/n64.min.js --minify",
+    "build-debug": "bun build ./src/n64.js --outfile=build/n64.min.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hulkholden/n64js"
+  },
+  "keywords": [
+    "n64",
+    "emulator"
+  ],
+  "author": "Paul Holden",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/hulkholden/n64js/issues"
+  },
+  "homepage": "https://github.com/hulkholden/n64js",
+  "dependencies": {
+    "@popperjs/core": "^2.11.8",
+    "bootstrap": "^5.3.2",
+    "lil-gui": "^0.18.2",
+    "mitata": "^0.1.6"
+  }
+}

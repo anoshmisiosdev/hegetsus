@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VNCSM6YVD4"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-VNCSM6YVD4');
+  </script>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="n64js.css">
+
+  <title>n64js - An N64 Emulator in JavaScript</title>
+</head>
+
+<body>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col col-sm-12">
+        <h1 id="title">n64js</a></h1>
+        <p>An n64 emulator. <a href="#" onclick="$('#info').toggle()">Info</a></p>
+      </div>
+    </div>
+
+    <div class="row toolbar">
+      <div class="col col-sm-12">
+        <div class="btn-toolbar">
+          <div class="btn-group">
+            <button type="button" class="btn" onclick="n64js.ui().triggerLoad()">
+              <i class="bi bi-file-earmark-binary"></i> Load</button>
+          </div>
+          <div class="btn-group">
+            <button type="button" class="btn" onclick="n64js.toggleRun()" id="runbutton">
+              <i class="bi bi-play"></i> Run</button>
+          </div>
+          <div class="btn-group">
+            <button type="button" class="btn" onclick="n64js.ui().toggleControllerConfig()">
+              <i class="bi bi-controller"></i> Controller</button>
+            <button type="button" class="btn" onclick="n64js.toggleFullscreen()">
+              <i class="bi bi-fullscreen"></i> Fullscreen</button>
+          </div>
+          <div class="btn-group">
+            <button type="button" class="btn" onclick="n64js.debugger().toggle()">
+              <i class="bi bi-bug"></i> Debug</button>
+            <button type="button" class="btn" onclick="n64js.togglePerformance()">
+              <i class="bi bi-graph-up"></i> Perf</button>
+          </div>
+          <div class="btn-group">
+            <div class="dropdown">
+              <button class="btn dropdown-toggle" id="bd-theme" type="button" data-bs-toggle="dropdown"
+                      data-bs-display="static">
+                <span class="theme-icon-active"><i class="bi bi-brightness-high"></i></span>
+                <span id="bd-theme-text">Theme</span>
+              </button>
+
+              <ul class="dropdown-menu">
+                <li>
+                  <button class="dropdown-item" type="button" data-bs-theme-value="light"><i
+                       class="bi bi-brightness-high"></i>
+                    Light</button>
+                  <button class="dropdown-item" type="button" data-bs-theme-value="dark"><i
+                       class="bi bi-moon-stars"></i>
+                    Dark</button>
+                  <button class="dropdown-item" type="button" data-bs-theme-value="auto"><i
+                       class="bi bi-circle-half"></i>
+                    Auto</button>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <input style="visibility:hidden; display:inline-block;" id="fileInput" name="fileInput" type="file"
+                 onchange="n64js.ui().loadFile()" />
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col col-sm-12" id="alerts"></div>
+    </div>
+
+    <div class="row">
+      <div style="white-space:nowrap;" class="col col-sm-8">
+        <canvas id="display" width="640" height="480" style="display:inline-block; background-color:#000;"></canvas>
+        <div id="adjacent-debug" class="col col-sm-10 debug debug-adjacent hidden"></div>
+      </div>
+      <div class="col col-sm-2" id="performance"></div>
+    </div>
+
+    <div class="row">
+      <div class="col col-sm-8" id="info" style="display:none">
+
+        <h2>Status</h2>
+        <p>Many games run at close to full speed on a M2 Macbook Pro but there are plenty of graphical issues.
+          See <a href="https://github.com/hulkholden/n64js">github</a> for the latest status.
+        </p>
+
+        <h2>Supported Browsers</h2>
+
+        <p>I did some quick testing on OSX 13.5:</p>
+
+        <table class="table table-condensed">
+          <tr>
+            <td>Chrome</td>
+            <td>116.0.5845.140 - runs well. I've been doing most of my development in Chrome so this is the preferred
+              option.</td>
+          </tr>
+          <tr>
+            <td>Firefox</td>
+            <td>117.0 - runs, but is slower than Chrome.</td>
+          </tr>
+          <tr>
+            <td>Safari</td>
+            <td>16.6 - runs, but is slower than Chrome.</td>
+          </tr>
+          <tr>
+            <td>Edge</td>
+            <td>Untested.</td>
+          </tr>
+        </table>
+
+        <p>WebGL is required, which places certain restrictions on which GPUs the emulator will work with. Most modern
+          GPUs should work though.</p>
+
+        <p>Get in touch via <a href="https://twitter.com/#!/hulkholden">twitter</a> if you have any additional info.</p>
+
+        <h2>Known Issues</h2>
+
+        <p>See <a href="https://github.com/hulkholden/n64js/issues">github</a>.</p>
+
+        <h2>Origins</h2>
+        <p>n64js is based on Daedalus, an emulator I started writing while I was at university under a pseudonym of <a
+             href="http://strmnnrmn.blogspot.co.uk/">StrmnNrmn</a>.
+          I've worked on Daedalus intermittantly ever since, but life and work have limited the time I've been able to
+          spend on the project in the past few years. The project
+          lives on due to the excellent work of everyone at <a href="http://forums.daedalusx64.com/">DaedalusX</a>. In
+          particular, Kreationz, Wally, Corn, Salvy all deserve
+          great credit for keeping the project going. Also, hello to Schibo, who was working on porting 1964 to
+          JavaScript: <a href="https://github.com/schibo/1964js">1964js</a>.</p>
+
+        <h2>Thanks</h2>
+        <p>Jan-Christoph Borchardt - better keyboard mapping for QWERTZ keyboards.</p>
+      </div>
+    </div>
+
+    <div class="debug hidden">
+      <div class="row">
+        <div class="col col-sm-4">
+          <form>
+            <div class="input-group">
+              <button type="button" class="btn" onclick="n64js.step()"><i class="bi bi-skip-end"></i> Step</button>
+            </div>
+            <div class="input-group">
+              <label class="form-label" for="speed">Speed</label>
+              <input class="form-range" type="range" min="0" max="8" value="0" id="cpu-speed" />
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col col-sm-12">
+          <div class="tabbable">
+            <ul class="nav nav-underline">
+              <li class="nav-item">
+                <button class="nav-link active" id="output-tab" data-bs-toggle="tab" data-bs-target="#output-content"
+                        type="button" role="tab">Output</button>
+              </li>
+              <li class="nav-item">
+                <button class="nav-link" id="cpu-tab" data-bs-toggle="tab" data-bs-target="#cpu-content" type="button"
+                        role="tab">CPU</button>
+              </li>
+              <li class="nav-item">
+                <button class="nav-link" id="rsp-tab" data-bs-toggle="tab" data-bs-target="#rsp-content" type="button"
+                        role="tab">RSP</button>
+              </li>
+              <li class="nav-item">
+                <button class="nav-link" id="memory-tab" data-bs-toggle="tab" data-bs-target="#memory-content"
+                        type="button" role="tab">Memory</button>
+              </li>
+              <li class="nav-item">
+                <button class="nav-link" id="dynarec-tab" data-bs-toggle="tab" data-bs-target="#dynarec-content"
+                        type="button" role="tab">Dynarec</button>
+              </li>
+              <li class="nav-item">
+                <button class="nav-link" id="dlist-tab" data-bs-toggle="tab" data-bs-target="#dlist-content"
+                        type="button" role="tab">DisplayList</button>
+              </li>
+              <li class="nav-item">
+                <button class="nav-link" id="texture-tab" data-bs-toggle="tab" data-bs-target="#texture-content"
+                        type="button" role="tab">Textures</button>
+              </li>
+              <li class="nav-item">
+                <button class="nav-link" id="timeline-tab" data-bs-toggle="tab" data-bs-target="#timeline-content"
+                        type="button" role="tab">Timeline</button>
+              </li>
+            </ul>
+            <div class="tab-content">
+              <div class="tab-pane active" id="output-content"></div>
+
+              <div class="tab-pane" id="cpu-content">
+                <div id="cpu" class="processor-display">
+                  <div class="processor-details">
+                    <table class="register-table">
+                      <tbody>
+                        <tr>
+                          <td>Ops</td>
+                          <td class="fixed" id="cpu0-status-opsexecuted"></td>
+                        </tr>
+                        <tr>
+                          <td>PC</td>
+                          <td class="fixed" id="cpu0-status-pc"></td>
+                          <td>delayPC</td>
+                          <td class="fixed" id="cpu0-status-delaypc"></td>
+                        </tr>
+                        <tr>
+                          <td>EPC</td>
+                          <td class="fixed" id="cpu0-status-epc"></td>
+                        </tr>
+                        <tr>
+                          <td>MultHi</td>
+                          <td class="fixed" id="cpu0-status-multhi"></td>
+                          <td>Cause</td>
+                          <td class="fixed" id="cpu0-status-cause"></td>
+                        </tr>
+                        <tr>
+                          <td>MultLo</td>
+                          <td class="fixed" id="cpu0-status-multlo"></td>
+                          <td>Count</td>
+                          <td class="fixed" id="cpu0-status-count"></td>
+                        </tr>
+                        <tr>
+                          <td></td>
+                          <td class="fixed"></td>
+                          <td>Compare</td>
+                          <td class="fixed" id="cpu0-status-compare"></td>
+                        </tr>
+
+                        <tr>
+                          <td>&nbsp;</td>
+                        </tr>
+
+                        <tr>
+                          <td>SR</td>
+                          <td class="fixed">
+                            <span id="cpu0-status-sr"></span>&nbsp;
+                            <span id="cpu0-status-sr-ie">IE</span>&nbsp;
+                            <span id="cpu0-status-sr-exl">EXL</span>&nbsp;
+                            <span id="cpu0-status-sr-erl">ERL</span>&nbsp;
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>MI Intr</td>
+                          <td class="fixed">
+                            <span id="cpu0-status-mi-sp">SP</span>&nbsp;
+                            <span id="cpu0-status-mi-si">SI</span>&nbsp;
+                            <span id="cpu0-status-mi-ai">AI</span>&nbsp;
+                            <span id="cpu0-status-mi-vi">VI</span>&nbsp;
+                            <span id="cpu0-status-mi-pi">PI</span>&nbsp;
+                            <span id="cpu0-status-mi-dp">DP</span>&nbsp;
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+
+                    <table class="register-table" id="cpu0-status-events">
+                      <tbody>
+                      </tbody>
+                    </table>
+
+                    <div class="tabbable tabs-left">
+                      <ul class="nav nav-underline">
+                        <li class="nav-item">
+                          <button class="nav-link active" id="cpu0-tab" data-bs-toggle="tab"
+                                  data-bs-target="#cpu0-content" type="button" role="tab">cpu0</button>
+                        </li>
+                        <li class="nav-item">
+                          <button class="nav-link" id="cpu1-tab" data-bs-toggle="tab" data-bs-target="#cpu1-content"
+                                  type="button" role="tab">cpu1</button>
+                        </li>
+                      </ul>
+                      <div class="tab-content">
+                        <div id="cpu0-content" class="tab-pane active"></div>
+                        <div id="cpu1-content" class="tab-pane"></div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="processor-details">
+                    <div class="control-group">
+                      <label class="control-label" for="address">Address</label>
+                      <div class="controls">
+                        <input class="input-small" id="address" type="text" placeholder="address" />
+                        <select id="labels">
+                        </select>
+                      </div>
+                    </div>
+                    <div id="cpu-disasm" class="fixed">
+                      <div class="dis">
+                        <div class="dis-gutter"></div>
+                        <div class="dis-view"></div>
+                      </div>
+                      <div class="dis-recent-memory"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="tab-pane" id="rsp-content">
+                <div id="rsp" class="processor-display">
+                  <div class="processor-details">
+                    <table class="register-table">
+                      <tbody>
+                        <tr>
+                          <td>Halted</td>
+                          <td class="fixed" id="rsp-status-halted"></td>
+                        </tr>
+                        <tr>
+                          <td>PC</td>
+                          <td class="fixed" id="rsp-status-pc"></td>
+                          <td>delayPC</td>
+                          <td class="fixed" id="rsp-status-delaypc"></td>
+                        </tr>
+                        <tr>
+                          <td>nextPC</td>
+                          <td class="fixed" id="rsp-status-nextpc"></td>
+                          <td>branchTarget</td>
+                          <td class="fixed" id="rsp-status-branchtarget"></td>
+                        </tr>
+                        <tr>
+                          <td>VCO</td>
+                          <td class="fixed" id="rsp-status-vco"></td>
+                        </tr>
+                        <tr>
+                          <td>VCC</td>
+                          <td class="fixed" id="rsp-status-vcc"></td>
+                        </tr>
+                        <tr>
+                          <td>VCE</td>
+                          <td class="fixed" id="rsp-status-vce"></td>
+                        </tr>
+                      </tbody>
+                    </table>
+
+                    <div class="tabbable tabs-left">
+                      <ul class="nav nav-underline">
+                        <li class="nav-item">
+                          <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#rsp-scalar-content"
+                                  type="button" role="tab">Scalar</button>
+                        </li>
+                        <li class="nav-item">
+                          <button class="nav-link" data-bs-toggle="tab" data-bs-target="#rsp-vector-content"
+                                  type="button" role="tab">Vector</button>
+                        </li>
+                        <li class="nav-item">
+                          <button class="nav-link" data-bs-toggle="tab" data-bs-target="#rsp-task-content" type="button"
+                                  role="tab">Task</button>
+                        </li>
+                      </ul>
+                      <div class="tab-content">
+                        <div id="rsp-scalar-content" class="tab-pane active"></div>
+                        <div id="rsp-vector-content" class="tab-pane"></div>
+                        <div id="rsp-task-content" class="tab-pane"></div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="processor-details">
+                    <div class="control-group">
+                      <label class="control-label" for="rsp-address">Address</label>
+                      <div class="controls">
+                        <input class="input-small" id="rsp-address" type="text" placeholder="address" />
+                        <select id="rsp-labels">
+                        </select>
+                      </div>
+                    </div>
+                    <div id="rsp-disasm" class="fixed">
+                      <div class="dis">
+                        <div class="dis-gutter"></div>
+                        <div class="dis-view"></div>
+                      </div>
+                      <div class="dis-recent-memory"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="tab-pane" id="memory-content">
+                <input type="text" placeholder="address" />
+                <pre></pre>
+              </div>
+              <div class="tab-pane" id="dlist-content">
+                <div id="controls">
+                  <div class="btn-toolbar">
+                    <div class="btn-group">
+                      <button type="button" class="btn" id="rwd">
+                        <i class="bi bi-skip-start"></i></button>
+                      <button type="button" class="btn" id="stop">
+                        <i class="bi bi-pause"></i></button>
+                      <button type="button" class="btn" id="fwd">
+                        <i class="bi bi-skip-end"></i></button>
+                    </div>
+                  </div>
+                  <div class="scrub">
+                    <div class="scrub-text"></div>
+                    <div><input type="range" min="0" max="0" value="0" /></div>
+                  </div>
+                  <br>
+                  <div class="hle-state">
+
+                    <div class="tabbable">
+                      <ul class="nav nav-underline">
+                        <li class="nav-item">
+                          <button class="nav-link" data-bs-toggle="tab" data-bs-target="#dl-geometrymode-content"
+                                  type="button" role="tab">Geometry
+                            Mode</button>
+                        </li>
+                        <li class="nav-item">
+                          <button class="nav-link" data-bs-toggle="tab" data-bs-target="#dl-vertices-content"
+                                  type="button" role="tab">Vertices</button>
+                        </li>
+                        <li class="nav-item">
+                          <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#dl-tiles-content"
+                                  type="button" role="tab">Tiles</button>
+                        </li>
+                        <li class="nav-item">
+                          <button class="nav-link" data-bs-toggle="tab" data-bs-target="#dl-combiner-content"
+                                  type="button" role="tab">Combiner</button>
+                        </li>
+                        <li class="nav-item">
+                          <button class="nav-link" data-bs-toggle="tab" data-bs-target="#dl-rdp-content" type="button"
+                                  role="tab">RDP</button>
+                        </li>
+                      </ul>
+                      <div class="tab-content">
+                        <div class="tab-pane" id="dl-geometrymode-content"></div>
+                        <div class="tab-pane" id="dl-vertices-content"></div>
+                        <div class="tab-pane active" id="dl-tiles-content"></div>
+                        <div class="tab-pane" id="dl-rdp-content"></div>
+                        <div class="tab-pane" id="dl-combiner-content"></div>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+              <div class="tab-pane" id="dynarec-content"></div>
+              <div class="tab-pane" id="texture-content"></div>
+              <div class="tab-pane" id="timeline-content">
+                <div class="timeline-panel"></div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="row">
+        &nbsp;
+      </div>
+
+      <div class="row">
+        <div class="col col-sm-12" id="output">
+          <button type="button" class="btn" id="clear">
+            <i class="bi bi-trash"></i>
+            Clear</button>
+          <div class="output fixed"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col col-sm-12">
+        <p>By <a href="https://twitter.com/#!/hulkholden">@HulkHolden</a>. <a
+             href="http://n64js.blogspot.co.uk/">Blog</a>. <a href="https://github.com/hulkholden/n64js">Code</a>.
+          <a href="http://www.youtube.com/user/n64js">Videos</a>.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal" tabindex="-1" id="controller">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Controls</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <table class="table table-sm">
+            <thead>
+              <tr>
+                <th>N64</th>
+                <th>Keyboard</th>
+              </tr>
+            </thead>
+            <tbody class="table-group-divider">
+              <tr>
+                <td>Start</td>
+                <td><input type="text" id="controller-start" class="control-input" size=1 maxlength=1 value="A"></td>
+              </tr>
+              <tr>
+                <td>A</td>
+                <td><input type="text" id="controller-a" class="control-input" size=1 maxlength=1 value="S"></td>
+              </tr>
+              <tr>
+                <td>B</td>
+                <td><input type="text" id="controller-b" class="control-input" size=1 maxlength=1 value="X"></td>
+              </tr>
+              <tr>
+                <td>Z</td>
+                <td><input type="text" id="controller-z" class="control-input" size=1 maxlength=1 value="Z"></td>
+              </tr>
+              <tr>
+                <td>L</td>
+                <td><input type="text" id="controller-l" class="control-input" size=1 maxlength=1 value="C"></td>
+              </tr>
+              <tr>
+                <td>R</td>
+                <td><input type="text" id="controller-r" class="control-input" size=1 maxlength=1 value="V"></td>
+              </tr>
+              <tr>
+                <td>DPad Up</td>
+                <td><input type="text" id="controller-dup" class="control-input" size=1 maxlength=1 value="T"></td>
+              </tr>
+              <tr>
+                <td>DPad Down</td>
+                <td><input type="text" id="controller-ddown" class="control-input" size=1 maxlength=1 value="G"></td>
+              </tr>
+              <tr>
+                <td>DPad Left</td>
+                <td><input type="text" id="controller-dleft" class="control-input" size=1 maxlength=1 value="F"></td>
+                <td>F</td>
+              </tr>
+              <tr>
+                <td>DPad Right</td>
+                <td><input type="text" id="controller-dright" class="control-input" size=1 maxlength=1 value="H"></td>
+              </tr>
+              <tr>
+                <td>C Up</td>
+                <td><input type="text" id="controller-cup" class="control-input" size=1 maxlength=1 value="I"></td>
+              </tr>
+              <tr>
+                <td>C Down</td>
+                <td><input type="text" id="controller-cdown" class="control-input" size=1 maxlength=1 value="K"></td>
+              </tr>
+              <tr>
+                <td>C Left</td>
+                <td><input type="text" id="controller-cleft" class="control-input" size=1 maxlength=1 value="J"></td>
+              </tr>
+              <tr>
+                <td>C Right</td>
+                <td><input type="text" id="controller-cright" class="control-input" size=1 maxlength=1 value="L"></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bake local version of the imports. -->
+  <script type="importmap">
+    {
+      "imports": {
+        "lil-gui": "https://cdn.jsdelivr.net/npm/lil-gui@0.18.2/+esm"
+      }
+    }
+  </script>
+  <script src="js/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+          crossorigin="anonymous"></script>
+  <script src="js/bootstrap-color-mode-toggler.js"></script>
+  <script src="js/md5.js"></script>
+  <script src="js/stats.js"></script>
+  <script src="js/webgl-debug.js"></script>
+  <script type="module" src="src/n64.js"></script>
+
+  <script id="fill-shader-vs" type="x-shader/x-vertex">#version 300 es
+      in vec4 aPosition;
+
+      void main(void) {
+        gl_Position = aPosition;
+      }
+    </script>
+  <script id="fill-shader-fs" type="x-shader/x-fragment">#version 300 es
+      precision mediump float;
+      uniform vec4 uFillColor;
+
+      out vec4 outCol;
+
+      void main(void) {
+        outCol = uFillColor;
+      }
+    </script>
+
+  <script id="blit-shader-vs" type="x-shader/x-vertex">#version 300 es
+      in vec4 aPosition;
+      in vec2 aUV;
+
+      out mediump vec2 vUV;
+
+      void main(void) {
+        gl_Position   = aPosition;
+        vUV = aUV;
+      }
+    </script>
+  <script id="blit-shader-fs" type="x-shader/x-fragment">#version 300 es
+      precision mediump float;
+      in mediump vec2 vUV;
+      out vec4 outCol;
+
+      uniform sampler2D uSampler0;
+
+      void main(void) {
+        vec4 col = texture(uSampler0, vUV);
+        outCol = vec4(col.rgb, 1);
+      }
+    </script>
+
+  <script id="n64-shader-vs" type="x-shader/x-vertex">#version 300 es
+      in vec4 aPosition;
+      in vec4 aColor;
+      in vec2 aUV;
+
+      out         vec4 vColor;
+      out mediump vec2 vUV;
+
+      void main(void) {
+        gl_Position = aPosition;
+        vColor = aColor;
+        vUV = aUV;
+      }
+    </script>
+  <script id="n64-shader-fs" type="x-shader/x-fragment">#version 300 es
+      precision mediump float;
+      in         vec4 vColor;
+      in mediump vec2 vUV;
+      out vec4 outCol;
+
+      uniform sampler2D uSampler0;
+      uniform sampler2D uSampler1;
+
+      uniform vec2 uTexOffset0;
+      uniform vec2 uTexOffset1;
+      uniform vec2 uTexScale0;
+      uniform vec2 uTexScale1;
+
+      uniform vec4  uPrimColor;
+      uniform vec4  uEnvColor;
+      uniform float uAlphaThreshold;
+
+      void main(void) {
+        vec2 uv0 = (vUV - uTexOffset0) * uTexScale0;
+        vec2 uv1 = (vUV - uTexOffset1) * uTexScale1;
+
+        vec4 shade = vColor;
+        vec4 prim  = uPrimColor;
+        vec4 env   = uEnvColor;
+        vec4 one   = vec4(1,1,1,1);
+        vec4 zero  = vec4(0,0,0,0);
+        // TODO: consider doing the shift/mask/clamp here.
+        vec4 tex0  = texture(uSampler0, uv0);
+        vec4 tex1  = texture(uSampler1, uv1);
+        vec4 col;
+        vec4 combined = vec4(0,0,0,1);
+        float lod_frac      = 0.0;    // FIXME
+        float prim_lod_frac = 0.0;    // FIXME
+        float k5            = 0.0;    // FIXME
+        {{body}}
+        outCol = col;
+      }
+    </script>
+
+  <script defer>
+    document.addEventListener('DOMContentLoaded', function () {
+      n64js.init();
+    });
+  </script>
+
+</body>
+
+<template id="alert">
+  <div class="alert">
+    <button class="close" data-dismiss="alert">×</button>
+    <strong class="alert-type"></strong> <span class="alert-message"></span>
+  </div>
+</template>
+
+</html>
