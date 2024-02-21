@@ -62,15 +62,6 @@
         
             $conn->close();
         ?>
-        <p class ="aboutmeBIO"style="border-color:orangered;">
-                    As the Front-End Developer, Varin created the aesthethic theme for our website
-                    and also worked on integrating features such as a swipeable carousel.  
-                    He utilized JavaScript to create visual features such as a parallax effect and also
-                    ensured the results from the backend MySQL database were presented in an effective and 
-                    visually pleasing way. He also helped design menus for the PvP game. Varin also used 3d modeling
-                    software to create and iterate on a frame for the AR glasses. 
-                    
-                    </p>
         
         
 
