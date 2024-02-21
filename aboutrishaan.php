@@ -35,6 +35,8 @@
 
     <?php
             include "connect.php";
+
+            $conn->query("use teamtechsupport;"); #First select the active database
             $newquery = 'select mNAMES,mBIO from members where mID = 5';
             
             $newresult = $conn->query($newquery);

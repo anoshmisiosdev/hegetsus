@@ -14,5 +14,5 @@
             }
             
             # Draw data from database using the query() method
-            $conn->query("use teamtechsupport;"); #First select the active database
+            
     ?>
