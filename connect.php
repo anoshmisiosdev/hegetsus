@@ -1,7 +1,7 @@
 <?php
             #Connection Values
             $servername = "localhost";
-            $username = "root";
+            $username = "t2";
             $password = '123456';
             #$password = ""; # Mr Millard's password is an empty string.
 
