@@ -25,7 +25,7 @@
                       <a class="aboutlinks" href="aboutvarin.php">Varin A.</a>
                       <a class="aboutlinks" href="aboutjason.php">Jason L.</a>
                       <a class="aboutlinks" href="aboutrishaan.php">Rishaan J.</a>
-                      <a href="DONOTTOUCH/3dmodel.html">Secret</a>
+                      <a class='aboutlinks' href="DONOTTOUCH/index.html">Secret?</a>
                     </div>
                   </div>
             </li>
