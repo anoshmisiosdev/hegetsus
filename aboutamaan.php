@@ -42,7 +42,9 @@
             if($newresult->num_rows>0){
                 while($row = $newresult->fetch_assoc()){
                     echo '<h2 class ="aboutmeNAME">'.$row["mNAMES"].'</h2>';
-                    echo '<img src="Amaan2.jpg">';
+                    echo '<div class="aboutmeIMAGE">
+                            <img src="Amaan2.jpg"  height="400" class="aboutmeIMAGEIMAGE">
+                        </div>';
                     echo '<p class ="aboutmeBIO"style="border-color:greenyellow;">'.$row["mBIO"].'</p>';
                     echo "<br>";
                     echo "<br>";
