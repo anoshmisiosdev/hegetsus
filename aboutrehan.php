@@ -62,12 +62,7 @@
         
             $conn->close();
         ?>
-        <p class ="aboutmeBIO"style="border-color:orange;">
-                    As Tech Support, Rehan researched and found solutions to all the bugs
-                    we encountered, whether they were in Unity, html, or PHP. He also took charge of 
-                    developing the PvP game and learned Unity from scratch to ensure a high-quality product. He also 
-                    made sure that the AR glasses were being developed in parallel with the game.
-                    </p>
+
         
 
 <html lang="en">
