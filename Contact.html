@@ -10,7 +10,7 @@
     </header>
 
     <body>
-
+        <script src="https://smtpjs.com/v3/smtp.js"></script>
         <section class="Contact">
                 <div class="content">
                     <h2>Contact Us</h2>
@@ -23,7 +23,7 @@
                     </div>
                     <div class="ContactForm">
                         
-                        <form action="contact.php" method="post">
+                        <form onclick="sendEmail()" method="post">
                             
                             <h2>Send Message</h2>
                             <div class="inputBox">
@@ -39,12 +39,11 @@
                                 <span>Message</span>
                             </div>
                             <div class="inputBox">
-                                <input type="submit" name="submit" value="Send">
+                                <input type="submit" name="submit" value="Send" onclick="sendEmail()">
                             </div>                                  
                         </form>
                     </div>
                 </div>
-
         </section>
     </body>
 </html>
