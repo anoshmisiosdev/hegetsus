@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script>
+            function displayQuestion(answer) {
+
+document.getElementById(answer + 'Question').style.display = "block";
+
+if (answer == "Projects") { // hide the div that is not selected
+
+  document.getElementById('MembersQuestion').style.display = "none";
+
+} else if (answer == "Members") {
+
+  document.getElementById('ProjectsQuestion').style.display = "none";
+
+}
+
+}
+        </script>
+
+    </head>
+    <body>
+        <form name="feedback" action="javascript:void(0)">
+            <label>
+                <select id ="yesOrNo" name="yesOrNo"onchange="displayQuestion(this.value)">
+                    <option value="Members" >Members</option>
+                    <option value="Projects" >Projects</option>
+                </select>
+            </label>        
+            
+            <div id="ProjectsQuestion" style="display:none;"><br/>
+              Editing Projects
+              <input type="text" placeholder="answer here . . . " />
+            </div>
+          
+            <div id="MembersQuestion" style="display:block;"><br/>
+              Editing Members
+              <br>
+              <form action="">
+              <label>
+                <select id="mNAME" name="mNAME">
+                    <option value="Riyan">Riyan</option>
+                    <option value="Varin">Varin</option>
+                    <option value="Rishaan">Rishaan</option>
+                    <option value="Amaan">Amaan</option>
+                    <option value="Rehan">Rehan</option>
+                    <option value="Jason">Jason</option>
+                </select>
+              </label>
+              <br>
+              <label>New Bio Here:</label>
+              <br>
+              <textarea id="mBIO" name="mBIO" rows="20" cols="50"></textarea>
+              <br/><br/><input type="submit">
+            </form>
+            </div>
+          
+          
+          
+          </form>
+          
+
+    </body>
+</html>

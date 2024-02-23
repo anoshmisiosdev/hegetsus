@@ -40,8 +40,8 @@ session_start();
     </header>   
     <p><br></br></p>
     <h2>FOR TEAM MEMBERS ONLY</h2>
-    <form action="passwordnew.PHP"method="post">
-        PASSWORD: <input name="pass" placeholder="Enter the password" type="password" id="bio"></input> <br>
+    <form action="passwordverifier.PHP"method="post">
+        PASSWORD: <input name="pass" placeholder="Enter the password" type="password"></input> <br>
         <button type="submit">SUBMIT</button>
     </form>
  
